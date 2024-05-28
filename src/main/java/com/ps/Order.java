@@ -4,9 +4,16 @@ import java.util.ArrayList;
 
 public class Order {
 
-    ArrayList<Product> products = new ArrayList<>();
+    ArrayList<Product> order = new ArrayList<>();
 
-    public void e(){
-        products.add(new Sandwich())
-    }
+   public void addToOrder(Product product){
+       order.add(product);
+   }
+
+   public void makeSandwich(){
+       Sandwich sandwich = new Sandwich()
+   }
+
+
+
 }

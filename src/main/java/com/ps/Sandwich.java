@@ -1,13 +1,15 @@
 package com.ps;
 
 public class Sandwich extends Product{
-
+    private String size;
     private String bread;
-    private String meats;
+    private String meat;
     private String cheese;
-    private String 
 
-    public Sandwich(double price) {
+
+    public Sandwich(String size) {
+        this.size = size;
+
     }
 
 

@@ -1,6 +1,7 @@
 package com.ps;
 
 public class Sandwich extends Product{
+
     private String size;
     private String bread;
     private String meat;

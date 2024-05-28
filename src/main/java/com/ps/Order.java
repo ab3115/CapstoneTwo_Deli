@@ -6,12 +6,12 @@ public class Order {
 
     ArrayList<Product> order = new ArrayList<>();
 
-   public void addToOrder(Product product){
+   public void add(Product product){
        order.add(product);
    }
 
    public void makeSandwich(){
-       Sandwich sandwich = new Sandwich()
+
    }
 
 

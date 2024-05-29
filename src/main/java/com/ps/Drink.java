@@ -1,10 +1,16 @@
 package com.ps;
 
-public class Drink extends Product{
+import java.util.HashMap;
 
-    public Drink(){
-        this.price = 1.50;
+public class Drink extends Product{
+    private String size;
+    private String flavor;
+   private HashMap<String,Double> size_pricing;
+
+    public Drink(double price) {
+        super(price);
     }
+
 
     public double calcPrice(){
         return 0;

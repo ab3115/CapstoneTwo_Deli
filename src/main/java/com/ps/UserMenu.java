@@ -7,7 +7,7 @@ public class UserMenu {
 
    static Scanner scanner = new Scanner(System.in);
    static boolean quit_menu = false;
-   Order order = new Order();
+
 
    public void homeScreen(){
        do {
@@ -22,6 +22,7 @@ public class UserMenu {
                                orderScreen();
                                break;
                            case (2):
+                               adminScreen();
                                break;
                            case(3):
                                quit_menu = true;
@@ -60,40 +61,55 @@ public class UserMenu {
                         break;
                 }
             }catch(InputMismatchException e){
-                System.out.println("Please select option");
+                System.out.println("Please select a valid option.");
             }
         }while(!quit_menu);
    }
 
+
+
+
+
+
+
    public void addSandwich() {
 
-       do{
+       do {
            System.out.println("What sized sandwich would you like?");
            System.out.println("\t(1) - 4''");
            System.out.println("\t(2) - 8''");
            System.out.println("\t(3) - 12'' ");
-           System.out.println("\t(4)- Exit App.");
-
+           String size;
            try {
                int choice = scanner.nextInt();
                switch (choice) {
                    case 1:
+                       size = "4";
                        break;
                    case 2:
+                       size = "8";
                        break;
                    case 3:
+                       size = "12";
                        break;
-                   case 4:
-                       quit_menu = true;
-                       System.exit(0);
-                       quit_menu = true;
                }
            } catch (InputMismatchException e) {
-               System.out.println("Please enter a valid input");
+               System.out.println("Please choose a valid size.");
            }
-
        }while(!quit_menu);
+
+
    }
+
+   System.out.println("What kind of bread would you like?");
+       System.out.println("\t(1)-White");
+       System.out.println("\t(2)-Whole Wheat");
+       System.out.println("\t(3)-Rye");
+       System.out.println("\t(4)-Wrap");
+
+
+
+
 
    public void addDrink(){
 
@@ -103,6 +119,10 @@ public class UserMenu {
    }
 
    public void checkout(){
+
+   }
+
+   public void adminScreen(){
 
    }
 

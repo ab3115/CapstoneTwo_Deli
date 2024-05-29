@@ -199,6 +199,38 @@ public void addMeat(){
        }while(!quit_menu);
 }
 
+
+
+public void extraMeat(){
+       do{
+           System.out.println("Would you like extra meat?");
+           System.out.println("\t(1)-Yes");
+           System.out.println("\t(2)-No");
+           try{
+               int choice = scanner.nextInt();
+               boolean extra_meat;
+
+               switch (choice){
+                   case 1:
+                       extra_meat = true;
+                       processExtraMeat(true);
+                       break;
+                   case 2:
+                       extra_meat = false;
+                       processExtraMeat(false);
+                       break;
+                   default:
+                       break;
+               }
+           }catch (InputMismatchException e) {
+               System.out.println("Please enter a valid option.");
+               scanner.nextLine();
+           }
+       }while(!quit_menu);
+}
+
+
+
 public void addCheese(){
        do{
            System.out.println("What kind of cheese would you like?");
@@ -213,10 +245,13 @@ public void addCheese(){
                        processAddCheese("American");
                        break;
                    case 2:
+                       processAddCheese("Provolone");
                        break;
                    case 3:
+                       processAddCheese("Cheddar");
                        break;
                    case 4:
+                       processAddCheese("Swiss");
                        break;
                    default:
                        System.out.println("Please choose a valid option");
@@ -262,6 +297,12 @@ public void processAddCheese(String cheese){
        order.addCheese(cheese);
 }
 
+public void processExtraMeat(boolean extra_meat){
+        order.addExtraMeat(extra_meat);
+}
 
+public void processExtraCheese(boolean extra_cheese){
+       order.addExtraCheese(extra_cheese);
+}
 
 }

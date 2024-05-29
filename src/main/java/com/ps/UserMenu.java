@@ -170,7 +170,6 @@ public void addMeat(){
                switch(input){
                    case 1:
                        processAddMeat("Steak");
-
                        break;
                    case 2:
                        processAddMeat("Ham");
@@ -202,7 +201,32 @@ public void addMeat(){
 
 public void addCheese(){
        do{
+           System.out.println("What kind of cheese would you like?");
+           System.out.println("\t(1)-American");
+           System.out.println("\t(2)-Provolone");
+           System.out.println("\t(3)-Cheddar");
+           System.out.println("\t(4)-Swiss");
+           try{
+               int input = scanner.nextInt();
+               switch (input){
+                   case 1:
+                       processAddCheese("American");
+                       break;
+                   case 2:
+                       break;
+                   case 3:
+                       break;
+                   case 4:
+                       break;
+                   default:
+                       System.out.println("Please choose a valid option");
+                       break;
+               }
 
+           }catch (InputMismatchException e){
+               System.out.println("Please select from the above.");
+               scanner.nextLine();
+           }
        }while(!quit_menu);
 }
 

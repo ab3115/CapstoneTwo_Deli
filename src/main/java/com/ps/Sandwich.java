@@ -1,8 +1,13 @@
 package com.ps;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Sandwich extends Product{
+
+    private HashMap<String,Double> small_prices = new HashMap<>();
+    private HashMap<String,Double> medium_prices = new HashMap<>();
+    private HashMap<String,Double> large_prices = new HashMap<>();
 
     private String size;
     private String bread;
@@ -15,14 +20,13 @@ public class Sandwich extends Product{
 
     public Sandwich(double price, String size, String bread,
                     String meat, String cheese,
-                    ArrayList<String> toppings, boolean extra_meat,
+                     boolean extra_meat,
                     boolean extra_cheese, boolean toasted) {
         super(price);
         this.size = size;
         this.bread = bread;
         this.meat = meat;
         this.cheese = cheese;
-        this.toppings = toppings;
         this.extra_meat = extra_meat;
         this.extra_cheese = extra_cheese;
         this.toasted = toasted;

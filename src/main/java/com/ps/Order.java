@@ -12,7 +12,7 @@ public class Order {
    }
 
 public void startSandwich(String size){
-       sandwich = new Sandwich(0,size,null,null,null,);
+       sandwich = new Sandwich(0,size,null,null,null,false,false,false);
 }
 
 public void addBread(String bread){
@@ -23,7 +23,13 @@ public void addMeat(String meat){
        sandwich.setMeat(meat);
 }
 
+public void addCheese(String cheese){
+       sandwich.setCheese(cheese);
+}
 
+public void addTopping(){
+
+}
 
 
 }

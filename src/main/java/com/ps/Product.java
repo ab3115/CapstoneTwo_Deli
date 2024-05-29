@@ -1,6 +1,6 @@
 package com.ps;
 
-public abstract class Product {
+public abstract class Product implements Priced {
 
     protected double price;
 
@@ -16,5 +16,4 @@ public abstract class Product {
         this.price = price;
     }
 
-    protected abstract double calcPrice();
 }

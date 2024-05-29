@@ -7,6 +7,7 @@ public class UserMenu {
 
    static Scanner scanner = new Scanner(System.in);
    static boolean quit_menu = false;
+   private Order order;
 
 
    public void homeScreen(){
@@ -17,6 +18,7 @@ public class UserMenu {
            System.out.println("\t(3)-Exit App.");
            try{
                int input = scanner.nextInt();
+
                        switch (input){
                            case(1):
                                orderScreen();
@@ -25,12 +27,17 @@ public class UserMenu {
                                adminScreen();
                                break;
                            case(3):
+                               System.out.println("Have a Great Day!");
                                quit_menu = true;
                                System.exit(0);
+                           default:
+                               System.out.println("Please enter a valid option");
+                               break;
                        }
 
            }catch(InputMismatchException e){
-               System.out.println("Please select a valid option.");
+               System.out.println("Please choose from the above.");
+               scanner.nextLine();
            }
        }while(!quit_menu);
    }
@@ -47,6 +54,7 @@ public class UserMenu {
             System.out.println("\t(4)-Checkout");
             try{
                 int input = scanner.nextInt();
+
                 switch (input){
                     case(1):
                         addSandwich();
@@ -59,9 +67,13 @@ public class UserMenu {
                         break;
                     case(4):
                         break;
+                    default:
+                        System.out.println("Please select a valid option.");
+                        break;
                 }
             }catch(InputMismatchException e){
-                System.out.println("Please select a valid option.");
+                System.out.println("Please choose from the above.");
+                scanner.nextLine();
             }
         }while(!quit_menu);
    }
@@ -76,39 +88,123 @@ public class UserMenu {
 
        do {
            System.out.println("What sized sandwich would you like?");
-           System.out.println("\t(1) - 4''");
-           System.out.println("\t(2) - 8''");
-           System.out.println("\t(3) - 12'' ");
-           String size;
+           System.out.println("\t(1) - 4\"");
+           System.out.println("\t(2) - 8\"");
+           System.out.println("\t(3) - 12\"");
            try {
                int choice = scanner.nextInt();
                switch (choice) {
                    case 1:
-                       size = "4";
+                       processAddSize("4");
+                        addBread();
                        break;
                    case 2:
-                       size = "8";
+                       processAddSize("8");
+                       addBread();
                        break;
                    case 3:
-                       size = "12";
+                       processAddSize("12");
+                       addBread();
+                       break;
+                   default:
+                       System.out.println("Please enter a valid size.");
                        break;
                }
            } catch (InputMismatchException e) {
-               System.out.println("Please choose a valid size.");
+               System.out.println("Please choose from the avaliable.");
+               scanner.nextLine();
            }
        }while(!quit_menu);
-
-
    }
 
-   System.out.println("What kind of bread would you like?");
-       System.out.println("\t(1)-White");
-       System.out.println("\t(2)-Whole Wheat");
-       System.out.println("\t(3)-Rye");
-       System.out.println("\t(4)-Wrap");
+
+   public void addBread(){
+
+     do {
+         System.out.println("What kind of bread would you like?");
+         System.out.println("\t(1)-White");
+         System.out.println("\t(2)-Whole Wheat");
+         System.out.println("\t(3)-Rye");
+         System.out.println("\t(4)-Wrap");
+         try{
+             int option = scanner.nextInt();
+             switch(option){
+                 case 1:
+                     processAddBread("White");
+                     addMeat();
+                     break;
+                 case 2:
+                     processAddBread("Whole Wheat");
+                     addMeat();
+                     break;
+                 case 3:
+                     processAddBread("Rye");
+                     addMeat();
+                     break;
+                 case 4:
+                     processAddBread("Wrap");
+                     addMeat();
+                     break;
+
+             }
+         }catch (InputMismatchException e){
+             System.out.println("Please select a bread option");
+             scanner.nextLine();
+         }
+     }while(!quit_menu);
+   }
 
 
 
+public void addMeat(){
+       do{
+           System.out.println("What kind of meat would you like?");
+           System.out.println("\t(1)-Steak");
+           System.out.println("\t(2)-Ham");
+           System.out.println("\t(3)-Salami");
+           System.out.println("\t(4)-Roast Beef");
+           System.out.println("\t(5)-Chicken");
+           System.out.println("\t(6)-Bacon");
+           try{
+               int input = scanner.nextInt();
+               switch(input){
+                   case 1:
+                       processAddMeat("Steak");
+
+                       break;
+                   case 2:
+                       processAddMeat("Ham");
+                       break;
+                   case 3:
+                       processAddMeat("Salami");
+                       break;
+                   case 4:
+                       processAddMeat("Roast Beef");
+                       break;
+                   case 5:
+                       processAddMeat("Chicken");
+                       break;
+                   case 6:
+                       processAddMeat("Bacon");
+                       break;
+                   default:
+                       System.out.println("Please choose a valid option.");
+                       break;
+               }
+
+           }catch(InputMismatchException e){
+               System.out.println("Please select from the above.");
+               scanner.nextLine();
+           }
+
+       }while(!quit_menu);
+}
+
+public void addCheese(){
+       do{
+
+       }while(!quit_menu);
+}
 
 
    public void addDrink(){
@@ -126,7 +222,21 @@ public class UserMenu {
 
    }
 
+   public void processAddSize(String size){
+       order.startSandwich(size);
+   }
 
+   public void processAddBread(String bread){
+        order.addBread(bread);
+   }
+
+public void processAddMeat(String meat){
+       order.addMeat(meat);
+}
+
+public void processAddCheese(String cheese){
+       order.addCheese(cheese);
+}
 
 
 

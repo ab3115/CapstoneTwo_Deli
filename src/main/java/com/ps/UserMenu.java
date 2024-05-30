@@ -346,7 +346,7 @@ public class UserMenu {
                 System.out.println(sauce_menu.get(i));
             }
             System.out.println("Choose the sauces you like on your sandwich");
-            System.out.println("Enter topping name or write \"None\" to proceed ");
+            System.out.println("Enter sauce name or write \"None\" to proceed ");
             String input;
             try {
                 input = scanner.next().toLowerCase();
@@ -372,21 +372,120 @@ public class UserMenu {
         ArrayList<String> user_choice = new ArrayList<>();
         ArrayList<String> side_menu = order.sandwich.getAvaliable_sides();
         boolean continue_choosing = true;
-        while(continue_choosing){
+        while (continue_choosing) {
             for (int i = 0; i < side_menu.size(); i++) {
                 System.out.println(side_menu.get(i));
             }
+            System.out.println("Choose the sides you like with your sandwich.");
+            System.out.println("Enter side name or write \"None\" to proceed ");
+            String input;
+            try {
+                input = scanner.next().toLowerCase();
+                if (input.equalsIgnoreCase("none")) {
+                    continue_choosing = false;
+                } else if (side_menu.contains(input)) {
+                    user_choice.add(input);
+                    side_menu.remove(input);
+                } else {
+                    System.out.println("Please select a choice from the menu.");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Please select a valid choice.");
+                scanner.nextLine();
+            }
 
         }
+        processAddSide(user_choice);
+        toasted();
+    }
+
+    public void toasted(){
+        do{
+            System.out.println("Would you like your sandwich toasted?");
+            System.out.println("\t(1)-Yes");
+            System.out.println("\t(2)-No");
+            try{
+                int input = scanner.nextInt();
+                switch(input){
+                    case 1:
+                        processToasted(true);
+                        addDrink();
+                        break;
+                    case 2:
+                        processToasted(false);
+                        addDrink();
+                        break;
+                    case 3:
+                        System.out.println("Please choose a valid choice.");
+                        break;
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Please enter valid input");
+                scanner.nextLine();
+            }
+
+        }while(!quit_menu);
     }
 
 
     public void addDrink() {
-
+        do {
+            System.out.println("What size drink would you like?");
+            System.out.println("\t(1)-Small");
+            System.out.println("\t(2)-Medium");
+            System.out.println("\t(3)-Large");
+            System.out.println("\t(4)-None");
+            try {
+                int input = scanner.nextInt();
+                switch (input) {
+                    case 1:
+                        processAddDrink("small");
+                        addChip();
+                        break;
+                    case 2:
+                        processAddDrink("medium");
+                        addChip();
+                        break;
+                    case 3:
+                        processAddDrink("large");
+                        addChip();
+                        break;
+                    case 4:
+                        System.out.println("No drink was added.");
+                        addChip();
+                        break;
+                    default:
+                        System.out.println("Please choose an option on the list.");
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid choice");
+                scanner.nextLine();
+            }
+        } while (!quit_menu);
     }
 
-    public void addChip() {
 
+    public void addChip() {
+        do {
+            System.out.println("Would you like to add a side of chips?");
+            System.out.println("\t(1)-Yes");
+            System.out.println("\t(2)-No");
+            try{
+                int input = scanner.nextInt();
+                switch(input){
+                    case 1:
+                        processAddChip();
+                        checkout();
+                        break;
+                    case 2:
+                        checkout();
+                        break;
+                }
+            }catch (InputMismatchException e){
+                System.out.println("Please choose valid option.");
+            }
+        }while (!quit_menu);
     }
 
     public void checkout() {
@@ -427,6 +526,21 @@ public class UserMenu {
 
     public void processAddSauces(ArrayList<String> sauces) {
         order.addSauces(sauces);
+    }
+
+    public void processAddSide(ArrayList<String> sides) {
+        order.addSide(sides);
+    }
+
+    public void processToasted(boolean toasted){
+        order.isToasted(toasted);
+    }
+
+    public void processAddDrink(String size) {
+        order.addDrink(size);
+    }
+    public void processAddChip(){
+        order.addChip();
     }
 
 }

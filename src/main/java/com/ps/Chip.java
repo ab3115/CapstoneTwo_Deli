@@ -6,9 +6,8 @@ public class Chip extends Product{
 
     private String flavor;
 
-    public Chip(String flavor) {
+    public Chip() {
         super(1.50);
-        this.flavor = flavor;
     }
 
     public String getFlavor() {

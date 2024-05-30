@@ -7,6 +7,8 @@ public class Order {
 
     private ArrayList<Product> order;
     Sandwich sandwich;
+    Drink drink;
+    Chip chips;
 
     public Order(){
         order = new ArrayList<>();
@@ -45,6 +47,22 @@ public void addTopping(ArrayList<String> toppings){
 
 public void addSauces(ArrayList<String> sauces){
         sandwich.setSauces(sauces);
+}
+
+public void addSide(ArrayList<String> sides){
+        sandwich.setSides(sides);
+}
+
+public void isToasted(boolean toasted){
+        sandwich.setToasted(toasted);
+}
+
+public void addDrink(String size){
+        drink = new Drink(size);
+}
+
+public void addChip(){
+        chips = new Chip();
 }
 
 }

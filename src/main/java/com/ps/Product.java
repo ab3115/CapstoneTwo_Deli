@@ -4,6 +4,10 @@ public abstract class Product implements Priced {
 
     protected double price;
 
+    public Product(){
+        this.price = 0;
+    }
+
     public Product(double price) {
         this.price = price;
     }

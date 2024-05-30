@@ -9,15 +9,20 @@ public class Sandwich extends Product{
     private HashMap<String,Double> medium_prices = new HashMap<>();
     private HashMap<String,Double> large_prices = new HashMap<>();
     private ArrayList<String> avaliable_toppings = new ArrayList<>();
+    private ArrayList<String> avaliable_sauces = new ArrayList<>();
+    private ArrayList<String> avaliable_sides = new ArrayList<>();
 
     private String size;
     private String bread;
     private String meat;
     private String cheese;
     private ArrayList<String> toppings;
+    private ArrayList<String> sauces;
+    private ArrayList<String> sides;
     private boolean extra_meat;
     private boolean extra_cheese;
     private boolean toasted;
+
 
     public Sandwich(double price, String size, String bread,
                     String meat, String cheese,
@@ -32,6 +37,8 @@ public class Sandwich extends Product{
         this.extra_cheese = extra_cheese;
         this.toasted = toasted;
         setAvaliable_toppings();
+        setAvaliable_sauces();
+        setAvaliable_sides();
     }
 
     public String getSize() {
@@ -74,6 +81,22 @@ public class Sandwich extends Product{
         this.toppings = toppings;
     }
 
+    public ArrayList<String> getSauces() {
+        return sauces;
+    }
+
+    public void setSauces(ArrayList<String> sauces) {
+        this.sauces = sauces;
+    }
+
+    public ArrayList<String> getSides() {
+        return sides;
+    }
+
+    public void setSides(ArrayList<String> sides) {
+        this.sides = sides;
+    }
+
     public boolean isExtra_meat() {
         return extra_meat;
     }
@@ -99,20 +122,43 @@ public class Sandwich extends Product{
     }
 
 
-    public void setAvaliable_toppings(){
-        avaliable_toppings.add("Lettuce");
-        avaliable_toppings.add("Peppers");
-        avaliable_toppings.add("Onions");
-        avaliable_toppings.add("Tomatoes");
-        avaliable_toppings.add("Jalapenos");
-        avaliable_toppings.add("Cucumbers");
-        avaliable_toppings.add("Pickles");
-        avaliable_toppings.add("Guacamole");
-        avaliable_toppings.add("Mushrooms");
+    private void setAvaliable_toppings(){
+        avaliable_toppings.add("lettuce");
+        avaliable_toppings.add("peppers");
+        avaliable_toppings.add("onions");
+        avaliable_toppings.add("tomatoes");
+        avaliable_toppings.add("jalapenos");
+        avaliable_toppings.add("cucumbers");
+        avaliable_toppings.add("pickles");
+        avaliable_toppings.add("guacamole");
+        avaliable_toppings.add("mushrooms");
     }
 
     public ArrayList<String> getAvaliable_toppings(){
         return avaliable_toppings;
+    }
+
+    private void setAvaliable_sauces(){
+        avaliable_sauces.add("mayo");
+        avaliable_sauces.add("mustard");
+        avaliable_sauces.add("ketchup");
+        avaliable_sauces.add("ranch");
+        avaliable_sauces.add("thousand islands");
+        avaliable_sauces.add("vinaigrette");
+
+    }
+
+    public ArrayList<String> getAvaliable_sauces(){
+        return avaliable_sauces;
+    }
+
+    private void setAvaliable_sides(){
+        avaliable_sides.add("au jus");
+        avaliable_sides.add("sauce");
+    }
+
+    public ArrayList<String> getAvaliable_sides(){
+        return avaliable_sides;
     }
 
     public void setSmall_prices(){

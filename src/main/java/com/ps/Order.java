@@ -43,5 +43,8 @@ public void addTopping(ArrayList<String> toppings){
         sandwich.setToppings(toppings);
 }
 
+public void addSauces(ArrayList<String> sauces){
+        sandwich.setSauces(sauces);
+}
 
 }

@@ -96,17 +96,16 @@ public class Order {
         sandwich.setToasted(toasted);
     }
 
-    public void addDrink(String size) {
-        add(drink = new Drink(size));
+    public void addDrink(String size,String flavor) {
+        add(drink = new Drink(size,flavor));
     }
 
-    public void addChip() {
-        add(chips = new Chip());
+    public void addChip(String flavor) {
+        add(chips = new Chip(flavor));
     }
 
 
     public void displayOrder() {
-        this.sandwich.calcCalories();
 
         for (int i = 0; i < order.size(); i++) {
 

@@ -258,16 +258,16 @@ public class Sandwich extends Product implements Edible {
     }
 
     public void setTopping_calories(){
-        topping_calories.add(new Meat("steak",90));
-        topping_calories.add(new Meat("ham", 60));
-        topping_calories.add(new Meat("salami", 110));
-        topping_calories.add(new Meat("roast beef", 70));
-        topping_calories.add(new Meat("chicken", 50));
-        topping_calories.add(new Meat("bacon", 150));
-        topping_calories.add(new Cheese("american", 105));
-        topping_calories.add(new Cheese("provolone", 90));
-        topping_calories.add(new Cheese("cheddar", 115));
-        topping_calories.add(new Cheese("swiss", 105));
+        topping_calories.add(new Meat("Steak",90));
+        topping_calories.add(new Meat("Ham", 60));
+        topping_calories.add(new Meat("Salami", 110));
+        topping_calories.add(new Meat("Roast Beef", 70));
+        topping_calories.add(new Meat("Chicken", 50));
+        topping_calories.add(new Meat("Bacon", 150));
+        topping_calories.add(new Cheese("American", 105));
+        topping_calories.add(new Cheese("Provolone", 90));
+        topping_calories.add(new Cheese("Cheddar", 115));
+        topping_calories.add(new Cheese("Swiss", 105));
         topping_calories.add(new StandardTopping("lettuce", 5));
         topping_calories.add(new StandardTopping("peppers", 15));
         topping_calories.add(new StandardTopping("onions", 10));
@@ -289,9 +289,9 @@ public class Sandwich extends Product implements Edible {
 
     public void setBread_calories(){
         bread_calories.add(new Bread("White", 120));
-        bread_calories.add(new Bread("wheat", 80));
-        bread_calories.add(new Bread("rye", 50));
-        bread_calories.add(new Bread("wrap", 90));
+        bread_calories.add(new Bread("Whole Wheat", 80));
+        bread_calories.add(new Bread("Rye", 50));
+        bread_calories.add(new Bread("Wrap", 90));
     }
 
 
@@ -360,12 +360,12 @@ public class Sandwich extends Product implements Edible {
         StringBuilder sandwich_order = new StringBuilder();
         sandwich_order.append("\nSandwich Details:\n");
         sandwich_order.append("Size: ").append(size).append("\n");
-        sandwich_order.append("Bread: ").append(bread).append("calories: ").append(calcBreadCals()).append("\n");
-        sandwich_order.append("Meat: ").append(meat).append("calories: ").append(calcMeatCals()).append("\n");
-        sandwich_order.append("Cheese: ").append(cheese).append("calories: ").append(calcCheeseCals()).append("\n");
-        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("calories: ").append(calcToppingCals()).append("\n");
-        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("calories: ").append(calcSaucesCals()).append("\n");
-        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("calories: ").append(calcSidesCals()).append("\n");
+        sandwich_order.append("Bread: ").append(bread).append(" calories: ").append(calcBreadCals()).append("\n");
+        sandwich_order.append("Meat: ").append(meat).append(" calories: ").append(calcMeatCals()).append("\n");
+        sandwich_order.append("Cheese: ").append(cheese).append(" calories: ").append(calcCheeseCals()).append("\n");
+        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append(" calories: ").append(calcToppingCals()).append("\n");
+        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append(" calories: ").append(calcSaucesCals()).append("\n");
+        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append(" calories: ").append(calcSidesCals()).append("\n");
         sandwich_order.append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
         sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");

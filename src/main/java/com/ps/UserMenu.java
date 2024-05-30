@@ -16,7 +16,6 @@ public class UserMenu {
         do {
             System.out.println("Welcome to Ocky's Sandwich shop!");
             System.out.println("\t(1)-New Order");
-            System.out.println("\t(2)-Admin. Mode");
             System.out.println("\t(3)-Exit App.");
             try {
                 int input = scanner.nextInt();
@@ -27,9 +26,6 @@ public class UserMenu {
                         orderScreen();
                         break;
                     case (2):
-                        adminScreen();
-                        break;
-                    case (3):
                         System.out.println("Have a Great Day!");
                         quit_menu = true;
                         System.exit(0);
@@ -79,8 +75,8 @@ public class UserMenu {
         } while (!quit_menu);
     }
 
-    public void chooseSandwich(){
-        do{
+    public void chooseSandwich() {
+        do {
             System.out.println("Would you like to try any of our signature sandwiches?!");
             System.out.println("Or create your own custom sandwich from scratch?");
             System.out.println("(1)-Make my own sandwich.");
@@ -88,9 +84,9 @@ public class UserMenu {
             System.out.println("(3)-Make a Philly Cheese Steak");
             System.out.println("(4)-Make a Pulled Pork Sub");
             System.out.println("(5)-Make a Spring Lovers.");
-            try{
+            try {
                 int option = scanner.nextInt();
-                switch(option){
+                switch (option) {
                     case 1:
                         addCustomSandwich();
                         break;
@@ -110,15 +106,13 @@ public class UserMenu {
                         System.out.println("Please choose from the above options.");
                         break;
                 }
-            }catch (InputMismatchException e) {
+            } catch (InputMismatchException e) {
                 System.out.println("Please enter a valid input.");
                 scanner.nextLine();
             }
-        }while(!quit_menu);
+        } while (!quit_menu);
         addCustomSandwich();
     }
-
-
 
 
     public void addCustomSandwich() {
@@ -154,10 +148,10 @@ public class UserMenu {
         } while (!quit_menu);
     }
 
-    public void editCustom(){
-        do{
+    public void editCustom() {
+        do {
 
-        }while(!quit_menu);
+        } while (!quit_menu);
     }
 
     public void addBread() {
@@ -492,15 +486,15 @@ public class UserMenu {
                 int input = scanner.nextInt();
                 switch (input) {
                     case 1:
-                        processAddDrink("small");
+                        processAddDrink("small", "coke");
                         addChip();
                         break;
                     case 2:
-                        processAddDrink("medium");
+                        processAddDrink("medium", "fanta");
                         addChip();
                         break;
                     case 3:
-                        processAddDrink("large");
+                        processAddDrink("large", "sprite");
                         addChip();
                         break;
                     case 4:
@@ -528,7 +522,7 @@ public class UserMenu {
                 int input = scanner.nextInt();
                 switch (input) {
                     case 1:
-                        processAddChip();
+                        processAddChip("Doritos");
                         checkout();
                         break;
                     case 2:
@@ -550,14 +544,14 @@ public class UserMenu {
             System.out.println("\t(2)-Cancel Order");
             try {
                 int input = scanner.nextInt();
-                switch (input){
+                switch (input) {
                     case 1:
                         processConfirm();
                         quit_menu = true;
                         break;
                     case 2:
                         System.out.println("Returning to main menu....");
-                        quit_menu =true;
+                        quit_menu = true;
                         break;
                     default:
                         System.out.println("Please choose an option.");
@@ -568,18 +562,11 @@ public class UserMenu {
                 System.out.println("Please enter a valid input.");
                 scanner.nextLine();
             }
-        }while(!quit_menu);
+        } while (!quit_menu);
     }
 
 
-
-
-
-    public void adminScreen() {
-
-    }
-
-    public void processStartSandwich(){
+    public void processStartSandwich() {
         order.startSandwich();
     }
 
@@ -623,12 +610,12 @@ public class UserMenu {
         order.isToasted(toasted);
     }
 
-    public void processAddDrink(String size) {
-        order.addDrink(size);
+    public void processAddDrink(String size, String flavor) {
+        order.addDrink(size, flavor);
     }
 
-    public void processAddChip() {
-        order.addChip();
+    public void processAddChip(String flavor) {
+        order.addChip(flavor);
     }
 
     public void processCheckout() {
@@ -639,10 +626,9 @@ public class UserMenu {
         order.checkOut();
     }
 
-    public void processMakeSignature(String choice){
+    public void processMakeSignature(String choice) {
         order.setSignatureSandwich(choice);
     }
-
 
 
 }

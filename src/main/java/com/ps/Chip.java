@@ -5,9 +5,18 @@ import java.util.HashMap;
 public class Chip extends Product implements Edible{
 
     private String flavor;
+    private double calories;
 
-    public Chip() {
-        super();
+    public Chip(String flavor){
+        this.flavor = flavor;
+    }
+
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
     }
 
     public String getFlavor() {
@@ -25,11 +34,12 @@ public class Chip extends Product implements Edible{
 
     @Override
     public String toString(){
-        return String.format("Chip: price: %.2f \n", calcPrice() );
+        return String.format("Chip: flavor: %s price: %.2f calories: %.2f\n",getFlavor(),calcCalories(), calcPrice() );
     }
 
     @Override
     public double calcCalories() {
-        return 0;
+        setCalories(150);
+     return getCalories();
     }
 }

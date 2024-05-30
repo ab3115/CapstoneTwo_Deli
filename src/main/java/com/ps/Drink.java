@@ -2,7 +2,7 @@ package com.ps;
 
 import java.util.HashMap;
 
-public class Drink extends Product{
+public class Drink extends Product implements Edible{
 
     private String size;
    private HashMap<String,Double> size_pricing;
@@ -42,4 +42,8 @@ public class Drink extends Product{
 
     }
 
+    @Override
+    public double calcCalories() {
+        return 0;
+    }
 }

@@ -3,7 +3,7 @@ package com.ps;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Sandwich extends Product {
+public class Sandwich extends Product implements Edible {
 
     private HashMap<String, Double> small_prices = new HashMap<>();
     private HashMap<String, Double> medium_prices = new HashMap<>();
@@ -11,6 +11,9 @@ public class Sandwich extends Product {
     private ArrayList<String> avaliable_toppings = new ArrayList<>();
     private ArrayList<String> avaliable_sauces = new ArrayList<>();
     private ArrayList<String> avaliable_sides = new ArrayList<>();
+
+    private ArrayList<Topping> topping_calories = new ArrayList<>();
+    private ArrayList<Bread> bread_calories = new ArrayList<>();
 
     private String size;
     private String bread;
@@ -22,6 +25,7 @@ public class Sandwich extends Product {
     private boolean extra_meat;
     private boolean extra_cheese;
     private boolean toasted;
+    private double total_calories;
 
 
     public Sandwich( String size, String bread,
@@ -35,12 +39,15 @@ public class Sandwich extends Product {
         this.extra_meat = extra_meat;
         this.extra_cheese = extra_cheese;
         this.toasted = toasted;
+        this.total_calories = 0;
         setAvaliable_toppings();
         setAvaliable_sauces();
         setAvaliable_sides();
         setSmall_prices();
         setMedium_prices();
         setLarge_prices();
+        setTopping_calories();
+        setBread_calories();
     }
 
     public String getSize() {
@@ -133,6 +140,14 @@ public class Sandwich extends Product {
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
+    }
+
+    public double getTotal_calories() {
+        return total_calories;
+    }
+
+    public void setTotal_calories(double total_calories) {
+        this.total_calories = total_calories;
     }
 
     public void setBLT(){
@@ -242,6 +257,45 @@ public class Sandwich extends Product {
         large_prices.put("Extra-Cheese", 0.90);
     }
 
+    public void setTopping_calories(){
+        topping_calories.add(new Meat("steak",90));
+        topping_calories.add(new Meat("ham", 60));
+        topping_calories.add(new Meat("salami", 110));
+        topping_calories.add(new Meat("roast beef", 70));
+        topping_calories.add(new Meat("chicken", 50));
+        topping_calories.add(new Meat("bacon", 150));
+        topping_calories.add(new Cheese("american", 105));
+        topping_calories.add(new Cheese("provolone", 90));
+        topping_calories.add(new Cheese("cheddar", 115));
+        topping_calories.add(new Cheese("swiss", 105));
+        topping_calories.add(new StandardTopping("lettuce", 5));
+        topping_calories.add(new StandardTopping("peppers", 15));
+        topping_calories.add(new StandardTopping("onions", 10));
+        topping_calories.add(new StandardTopping("tomatoes", 20));
+        topping_calories.add(new StandardTopping("jalapenos", 5));
+        topping_calories.add(new StandardTopping("cucumbers", 10));
+        topping_calories.add(new StandardTopping("pickles", 5));
+        topping_calories.add(new StandardTopping("guacamole", 50));
+        topping_calories.add(new StandardTopping("mushrooms", 5));
+        topping_calories.add(new Sauce("mayo", 90));
+        topping_calories.add(new Sauce("mustard", 10));
+        topping_calories.add(new Sauce("ketchup", 20));
+        topping_calories.add(new Sauce("ranch", 70));
+        topping_calories.add(new Sauce("thousand islands", 110));
+        topping_calories.add(new Sauce("vinaigrette", 60));
+        topping_calories.add(new Sauce("au jus", 30));
+        topping_calories.add(new Sauce("sauce", 10));
+    }
+
+    public void setBread_calories(){
+        bread_calories.add(new Bread("White", 120));
+        bread_calories.add(new Bread("wheat", 80));
+        bread_calories.add(new Bread("rye", 50));
+        bread_calories.add(new Bread("wrap", 90));
+    }
+
+
+
     @Override
     public double calcPrice() {
         switch (size) {
@@ -306,7 +360,7 @@ public class Sandwich extends Product {
         StringBuilder sandwich_order = new StringBuilder();
         sandwich_order.append("Sandwich Details:\n");
         sandwich_order.append("Size: ").append(size).append("\n");
-        sandwich_order.append("Bread: ").append(bread).append("\n");
+        sandwich_order.append("Bread: ").append(bread).append("calories: ").append(calcBreadCals()).append("\n");
         sandwich_order.append("Meat: ").append(meat).append("\n");
         sandwich_order.append("Cheese: ").append(cheese).append("\n");
         sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("\n");
@@ -316,7 +370,146 @@ public class Sandwich extends Product {
         sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
         sandwich_order.append("Price: ").append(calcPrice()).append("\n");
+        sandwich_order.append("Calories: ").append(calcCalories()).append("\n");
         return sandwich_order.toString();
+    }
+
+    @Override
+    public double calcCalories() {
+
+        double bread_cals = calcBreadCals();
+        double meat_cals = calcMeatCals();
+        double cheese_cals = calcCheeseCals();
+        double toppings_cals = calcToppingCals();
+        double sauces_cals = calcSaucesCals();
+        double sides_cals = calcSidesCals();
+         setTotal_calories(bread_cals + meat_cals + cheese_cals + toppings_cals + sauces_cals + sides_cals);
+        return  getTotal_calories();
+    }
+
+
+    public double calcBreadCals(){
+        String bread = getBread();
+        double bread_cals = 0;
+        for (int i = 0;i < bread_calories.size();i++){
+            if (!bread.isBlank()) {
+                if(bread_calories.get(i).getName().equalsIgnoreCase(bread)){
+                    bread_cals = bread_calories.get(i).getCalories();
+
+                }
+
+            }
+        }
+        if(size.equals("8")){
+            bread_cals *= 1.3;
+        } else if (size.equals("12")) {
+            bread_cals *= 1.5;
+        }
+        return bread_cals;
+    }
+
+    public double calcMeatCals(){
+        String meat = getMeat();
+        double meat_cals = 0;
+        for (int i = 0;i < topping_calories.size();i++){
+            if (!meat.isBlank()) {
+                if(topping_calories.get(i).getName().equalsIgnoreCase(meat)){
+                    meat_cals = topping_calories.get(i).getCalories();
+
+                }
+
+            }
+        }
+        if(size.equals("8")){
+            meat_cals *= 1.3;
+        } else if (size.equals("12")) {
+            meat_cals *= 1.5;
+        }
+        return meat_cals;
+    }
+
+    public double calcCheeseCals(){
+        String cheese = getCheese();
+        double cheese_cals =0;
+        for(int i = 0;i < topping_calories.size();i++) {
+            if (!cheese.isBlank()) {
+                if (topping_calories.get(i).getName().equalsIgnoreCase(cheese)) {
+                   cheese_cals = topping_calories.get(i).getCalories();
+
+                }
+            }
+        }
+        if(size.equals("8")){
+            cheese_cals *= 1.3;
+        } else if (size.equals("12")) {
+            cheese_cals *= 1.5;
+        }
+        return cheese_cals;
+    }
+
+    public double calcToppingCals(){
+        ArrayList<String> toppings = getToppings();
+        double topping_cals = 0;
+        for(int i = 0;i < topping_calories.size();i++) {
+            if (!toppings.isEmpty()) {
+                for (int j = 0; j < getToppings().size(); j++) {
+                    if (topping_calories.get(i).getName().equalsIgnoreCase(getToppings().get(j))) {
+                        topping_cals += topping_calories.get(i).getCalories();
+                    }
+
+                }
+            }
+        }
+        if(size.equals("8")){
+            topping_cals *= 1.3;
+        } else if (size.equals("12")) {
+            topping_cals *= 1.5;
+        }
+        return topping_cals;
+    }
+
+
+
+    public double calcSaucesCals(){
+        ArrayList<String> sauces = getSauces();
+        double sauces_cals = 0;
+        for(int i = 0;i < topping_calories.size();i++) {
+            if (!sauces.isEmpty()) {
+                for (int j = 0; j < getSauces().size(); j++) {
+                    if (topping_calories.get(i).getName().equalsIgnoreCase(getSauces().get(j))) {
+                        sauces_cals += topping_calories.get(i).getCalories();
+                    }
+                }
+
+            }
+        }
+        if(size.equals("8")){
+            sauces_cals *= 1.3;
+        } else if (size.equals("12")) {
+            sauces_cals *= 1.5;
+        }
+        return sauces_cals;
+    }
+
+
+    public double calcSidesCals(){
+        ArrayList<String> sides =getSides();
+        double sides_cals = 0;
+        for(int i = 0;i < topping_calories.size();i++) {
+            if (!sides.isEmpty()) {
+                for (int j = 0; j < getSides().size(); j++) {
+                    if (topping_calories.get(i).getName().equalsIgnoreCase(getSides().get(j))) {
+                        sides_cals += topping_calories.get(i).getCalories();
+                    }
+                }
+            }
+        }
+        if(size.equals("8")){
+            sides_cals *= 1.3;
+        } else if (size.equals("12")) {
+            sides_cals *= 1.5;
+        }
+        return sides_cals;
     }
 
 }

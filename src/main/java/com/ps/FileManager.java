@@ -18,7 +18,11 @@ public class FileManager {
 
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file_name));
-
+            bufferedWriter.write(formatted_date_time);
+            for(Product product: order){
+                bufferedWriter.write(product.toString());
+            }
+            bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

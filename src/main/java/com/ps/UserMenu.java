@@ -57,7 +57,8 @@ public class UserMenu {
 
                 switch (input) {
                     case (1):
-                        addSandwich();
+                        processStartSandwich();
+                        chooseSandwich();
                         break;
                     case (2):
                         addDrink();
@@ -78,13 +79,55 @@ public class UserMenu {
         } while (!quit_menu);
     }
 
+    public void chooseSandwich(){
+        do{
+            System.out.println("Would you like to try any of our signature sandwiches?!");
+            System.out.println("Or create your own custom sandwich from scratch?");
+            System.out.println("(1)-Make my own sandwich.");
+            System.out.println("(2)-Make a BLT");
+            System.out.println("(3)-Make a Philly Cheese Steak");
+            System.out.println("(4)-Make a Pulled Pork Sub");
+            System.out.println("(5)-Make a Spring Lovers.");
+            try{
+                int option = scanner.nextInt();
+                switch(option){
+                    case 1:
+                        addCustomSandwich();
+                        break;
+                    case 2:
+                        processMakeSignature("BLT");
+                        break;
+                    case 3:
+                        processMakeSignature("Philly");
+                        break;
+                    case 4:
+                        processMakeSignature("Pulled Pork");
+                        break;
+                    case 5:
+                        processMakeSignature("Spring Lover");
+                        break;
+                    default:
+                        System.out.println("Please choose from the above options.");
+                        break;
+                }
+            }catch (InputMismatchException e) {
+                System.out.println("Please enter a valid input.");
+                scanner.nextLine();
+            }
+        }while(!quit_menu);
+        addCustomSandwich();
+    }
 
-    public void addSandwich() {
+
+
+
+    public void addCustomSandwich() {
         do {
             System.out.println("What sized sandwich would you like?");
             System.out.println("\t(1) - 4\"");
             System.out.println("\t(2) - 8\"");
             System.out.println("\t(3) - 12\"");
+
             try {
                 int choice = scanner.nextInt();
                 switch (choice) {
@@ -111,6 +154,11 @@ public class UserMenu {
         } while (!quit_menu);
     }
 
+    public void editCustom(){
+        do{
+
+        }while(!quit_menu);
+    }
 
     public void addBread() {
 
@@ -120,6 +168,7 @@ public class UserMenu {
             System.out.println("\t(2)-Whole Wheat");
             System.out.println("\t(3)-Rye");
             System.out.println("\t(4)-Wrap");
+
             try {
                 int option = scanner.nextInt();
                 switch (option) {
@@ -139,7 +188,9 @@ public class UserMenu {
                         processAddBread("Wrap");
                         addMeat();
                         break;
-
+                    default:
+                        System.out.println("Please enter a valid choice.");
+                        break;
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please select a bread option");
@@ -204,6 +255,7 @@ public class UserMenu {
             System.out.println("Would you like extra meat?");
             System.out.println("\t(1)-Yes");
             System.out.println("\t(2)-No");
+
             try {
                 int choice = scanner.nextInt();
                 boolean extra_meat;
@@ -238,6 +290,7 @@ public class UserMenu {
             System.out.println("\t(2)-Provolone");
             System.out.println("\t(3)-Cheddar");
             System.out.println("\t(4)-Swiss");
+
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -283,12 +336,12 @@ public class UserMenu {
                     case 1:
                         extra_cheese = true;
                         processExtraCheese(true);
-                        addToppingsMenu();
+                        addToppings();
                         break;
                     case 2:
                         extra_cheese = false;
                         processExtraCheese(false);
-                        addToppingsMenu();
+                        addToppings();
                         break;
                     default:
                         System.out.println("Please choose yes or no.");
@@ -303,7 +356,7 @@ public class UserMenu {
     }
 
 
-    public void addToppingsMenu() {
+    public void addToppings() {
 
         ArrayList<String> user_selection = new ArrayList<>();
         ArrayList<String> topping_menu = order.sandwich.getAvaliable_toppings();
@@ -500,6 +553,7 @@ public class UserMenu {
                 switch (input){
                     case 1:
                         processConfirm();
+                        quit_menu = true;
                         break;
                     case 2:
                         System.out.println("Returning to main menu....");
@@ -517,12 +571,20 @@ public class UserMenu {
         }while(!quit_menu);
     }
 
+
+
+
+
     public void adminScreen() {
 
     }
 
+    public void processStartSandwich(){
+        order.startSandwich();
+    }
+
     public void processAddSize(String size) {
-        order.startSandwich(size);
+        order.addSize(size);
     }
 
     public void processAddBread(String bread) {
@@ -574,7 +636,13 @@ public class UserMenu {
     }
 
     public void processConfirm() {
-
+        order.checkOut();
     }
+
+    public void processMakeSignature(String choice){
+        order.setSignatureSandwich(choice);
+    }
+
+
 
 }

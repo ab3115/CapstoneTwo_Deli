@@ -1,0 +1,14 @@
+20240530-032041Sandwich Details:
+Size: 4
+Bread: White
+Meat: Ham
+Cheese: American
+Toppings: 
+Sauces: 
+Sides: 
+Extra Meat: Yes
+Extra Cheese: No
+Toasted: No
+Price: 7.0
+Drink: size: medium price: 2.50
+Chip: price: 1.50 

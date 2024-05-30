@@ -10,9 +10,12 @@ public class Order {
     Sandwich sandwich;
     Drink drink;
     Chip chips;
+    private double total_price;
+    private double total_cals;
 
     public Order() {
         order = new ArrayList<>();
+        total_price = 0.00;
     }
 
 
@@ -20,8 +23,8 @@ public class Order {
         order.add(product);
     }
 
-    public void startSandwich(String size) {
-        add(sandwich = new Sandwich(size, "", "", "", false, false, false));
+    public void startSandwich() {
+        add(sandwich = new Sandwich("", "", "", "", false, false, false));
     }
 
     public void setSignatureSandwich(String choice){
@@ -38,8 +41,23 @@ public class Order {
                 return;
             case("Spring Lover"):
                 sandwich.setSpringLover();
-                return;
         }
+    }
+
+    public double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
+    }
+
+    public void setTotal_calories(double total_calories){
+
+    }
+
+    public void addSize(String size){
+        sandwich.setSize(size);
     }
 
     public void addBread(String bread) {
@@ -86,15 +104,20 @@ public class Order {
         add(chips = new Chip());
     }
 
-    public void displayOrder() {
 
-        double total_price = 0.00;
+    public void displayOrder() {
+        this.sandwich.calcCalories();
+
         for (int i = 0; i < order.size(); i++) {
-            total_price += order.get(i).calcPrice();
+
+            setTotal_price(total_price += order.get(i).calcPrice());
             System.out.println(order.get(i).toString());
+
         }
-        System.out.printf("Total price: %.2f\n ", total_price);
+        System.out.printf("Total price: %.2f\n ", getTotal_price());
     }
+
+
 
 
     public void checkOut() {

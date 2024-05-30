@@ -2,7 +2,7 @@ package com.ps;
 
 import java.util.HashMap;
 
-public class Chip extends Product{
+public class Chip extends Product implements Edible{
 
     private String flavor;
 
@@ -28,4 +28,8 @@ public class Chip extends Product{
         return String.format("Chip: price: %.2f \n", calcPrice() );
     }
 
+    @Override
+    public double calcCalories() {
+        return 0;
+    }
 }

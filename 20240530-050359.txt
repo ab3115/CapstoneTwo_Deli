@@ -1,0 +1,15 @@
+20240530-050359Sandwich Details:
+Size: 12
+Bread: Whole Wheatcalories: 0.0
+Meat: Salamicalories: 220.0
+Cheese: Cheddarcalories: 230.0
+Toppings: mushrooms, pickles, cucumberscalories: 30.0
+Sauces: ranch, ketchupcalories: 180.0
+Sides: saucecalories: 20.0
+Extra Meat: Yes
+Extra Cheese: Yes
+Toasted: Yes
+Price: 8.5
+Calories: 680.0
+Drink: size: medium price: 2.50
+Chip: price: 1.50 

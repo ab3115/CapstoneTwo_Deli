@@ -361,11 +361,11 @@ public class Sandwich extends Product implements Edible {
         sandwich_order.append("Sandwich Details:\n");
         sandwich_order.append("Size: ").append(size).append("\n");
         sandwich_order.append("Bread: ").append(bread).append("calories: ").append(calcBreadCals()).append("\n");
-        sandwich_order.append("Meat: ").append(meat).append("\n");
-        sandwich_order.append("Cheese: ").append(cheese).append("\n");
-        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("\n");
-        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("\n");
-        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("\n");
+        sandwich_order.append("Meat: ").append(meat).append("calories: ").append(calcMeatCals()).append("\n");
+        sandwich_order.append("Cheese: ").append(cheese).append("calories: ").append(calcCheeseCals()).append("\n");
+        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("calories: ").append(calcToppingCals()).append("\n");
+        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("calories: ").append(calcSaucesCals()).append("\n");
+        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("calories: ").append(calcSidesCals()).append("\n");
         sandwich_order.append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
         sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
@@ -401,9 +401,9 @@ public class Sandwich extends Product implements Edible {
             }
         }
         if(size.equals("8")){
-            bread_cals *= 1.3;
+            bread_cals *= 1.6;
         } else if (size.equals("12")) {
-            bread_cals *= 1.5;
+            bread_cals *= 2.1;
         }
         return bread_cals;
     }
@@ -420,10 +420,11 @@ public class Sandwich extends Product implements Edible {
 
             }
         }
+
         if(size.equals("8")){
-            meat_cals *= 1.3;
-        } else if (size.equals("12")) {
             meat_cals *= 1.5;
+        } else if (size.equals("12")) {
+            meat_cals *= 2;
         }
         return meat_cals;
     }
@@ -440,9 +441,9 @@ public class Sandwich extends Product implements Edible {
             }
         }
         if(size.equals("8")){
-            cheese_cals *= 1.3;
-        } else if (size.equals("12")) {
             cheese_cals *= 1.5;
+        } else if (size.equals("12")) {
+            cheese_cals *= 2;
         }
         return cheese_cals;
     }
@@ -461,7 +462,7 @@ public class Sandwich extends Product implements Edible {
             }
         }
         if(size.equals("8")){
-            topping_cals *= 1.3;
+            topping_cals *= 1.25;
         } else if (size.equals("12")) {
             topping_cals *= 1.5;
         }
@@ -484,9 +485,9 @@ public class Sandwich extends Product implements Edible {
             }
         }
         if(size.equals("8")){
-            sauces_cals *= 1.3;
-        } else if (size.equals("12")) {
             sauces_cals *= 1.5;
+        } else if (size.equals("12")) {
+            sauces_cals *= 2;
         }
         return sauces_cals;
     }
@@ -505,9 +506,9 @@ public class Sandwich extends Product implements Edible {
             }
         }
         if(size.equals("8")){
-            sides_cals *= 1.3;
-        } else if (size.equals("12")) {
             sides_cals *= 1.5;
+        } else if (size.equals("12")) {
+            sides_cals *= 2;
         }
         return sides_cals;
     }

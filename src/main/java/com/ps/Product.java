@@ -8,10 +8,6 @@ public abstract class Product implements Priced {
         this.price = 0;
     }
 
-    public Product(double price) {
-        this.price = price;
-    }
-
     public double getPrice() {
         return price;
     }

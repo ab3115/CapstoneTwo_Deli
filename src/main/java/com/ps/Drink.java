@@ -8,7 +8,7 @@ public class Drink extends Product{
    private HashMap<String,Double> size_pricing;
 
     public Drink(String size) {
-        super();
+        size_pricing = new HashMap<>();
         this.size = size;
         setSize_pricing();
     }
@@ -37,10 +37,9 @@ public class Drink extends Product{
 
     @Override
     public String toString() {
-        return "Drink{" +
-                "size='" + size + '\'' +
-                ", price=" + getPrice() +
-                '}';
+
+        return String.format("Drink: size: %s price: %.2f\n",size, calcPrice() );
+
     }
 
 }

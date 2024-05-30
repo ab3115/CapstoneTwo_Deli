@@ -80,7 +80,7 @@ public class UserMenu {
 
 
     public void addSandwich() {
-
+        boolean proceed = false;
         do {
             System.out.println("What sized sandwich would you like?");
             System.out.println("\t(1) - 4\"");
@@ -91,15 +91,15 @@ public class UserMenu {
                 switch (choice) {
                     case 1:
                         processAddSize("4");
-                        addBread();
+                        proceed = true;
                         break;
                     case 2:
                         processAddSize("8");
-                        addBread();
+                        proceed = true;
                         break;
                     case 3:
                         processAddSize("12");
-                        addBread();
+                        proceed = true;
                         break;
                     default:
                         System.out.println("Please enter a valid size.");
@@ -109,7 +109,8 @@ public class UserMenu {
                 System.out.println("Please choose from the avaliable.");
                 scanner.nextLine();
             }
-        } while (!quit_menu);
+        } while (proceed);
+        addBread();
     }
 
 
@@ -400,14 +401,14 @@ public class UserMenu {
         toasted();
     }
 
-    public void toasted(){
-        do{
+    public void toasted() {
+        do {
             System.out.println("Would you like your sandwich toasted?");
             System.out.println("\t(1)-Yes");
             System.out.println("\t(2)-No");
-            try{
+            try {
                 int input = scanner.nextInt();
-                switch(input){
+                switch (input) {
                     case 1:
                         processToasted(true);
                         addDrink();
@@ -420,12 +421,12 @@ public class UserMenu {
                         System.out.println("Please choose a valid choice.");
                         break;
                 }
-            }catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Please enter valid input");
                 scanner.nextLine();
             }
 
-        }while(!quit_menu);
+        } while (!quit_menu);
     }
 
 
@@ -472,9 +473,9 @@ public class UserMenu {
             System.out.println("Would you like to add a side of chips?");
             System.out.println("\t(1)-Yes");
             System.out.println("\t(2)-No");
-            try{
+            try {
                 int input = scanner.nextInt();
-                switch(input){
+                switch (input) {
                     case 1:
                         processAddChip();
                         checkout();
@@ -483,10 +484,10 @@ public class UserMenu {
                         checkout();
                         break;
                 }
-            }catch (InputMismatchException e){
+            } catch (InputMismatchException e) {
                 System.out.println("Please choose valid option.");
             }
-        }while (!quit_menu);
+        } while (!quit_menu);
     }
 
     public void checkout() {
@@ -534,19 +535,24 @@ public class UserMenu {
         order.addSide(sides);
     }
 
-    public void processToasted(boolean toasted){
+    public void processToasted(boolean toasted) {
         order.isToasted(toasted);
     }
 
     public void processAddDrink(String size) {
         order.addDrink(size);
     }
-    public void processAddChip(){
+
+    public void processAddChip() {
         order.addChip();
     }
 
-    public void processCheckout(){
-        System.out.println(order.displayOrder());
+    public void processCheckout() {
+        order.displayOrder();
+    }
+
+    public void processConfirm() {
+
     }
 
 }

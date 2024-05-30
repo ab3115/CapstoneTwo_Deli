@@ -24,11 +24,10 @@ public class Sandwich extends Product {
     private boolean toasted;
 
 
-    public Sandwich(double price, String size, String bread,
+    public Sandwich( String size, String bread,
                     String meat, String cheese,
                     boolean extra_meat,
                     boolean extra_cheese, boolean toasted) {
-        super(price);
         this.size = size;
         this.bread = bread;
         this.meat = meat;
@@ -124,6 +123,14 @@ public class Sandwich extends Product {
         this.toasted = toasted;
     }
 
+    public void setBLT(){
+        setSize("8");
+        setBread("White");
+        setMeat("Bacon");
+        setCheese("Cheddar");
+        setToppings();
+    }
+
 
     private void setAvaliable_toppings() {
         avaliable_toppings.add("lettuce");
@@ -164,7 +171,7 @@ public class Sandwich extends Product {
         return avaliable_sides;
     }
 
-    public void setSmall_prices() {
+    private void setSmall_prices() {
         small_prices.put("Bread", 5.50);
         small_prices.put("Meat", 1.00);
         small_prices.put("Cheese", 0.75);
@@ -172,7 +179,7 @@ public class Sandwich extends Product {
         small_prices.put("Extra-Cheese", 0.30);
     }
 
-    public void setMedium_prices() {
+    private void setMedium_prices() {
         medium_prices.put("Bread", 7.00);
         medium_prices.put("Meat", 2.00);
         medium_prices.put("Cheese", 1.50);
@@ -180,7 +187,7 @@ public class Sandwich extends Product {
         medium_prices.put("Extra-Cheese", 0.60);
     }
 
-    public void setLarge_prices() {
+    private void setLarge_prices() {
         large_prices.put("Bread", 8.50);
         large_prices.put("Meat", 3.00);
         large_prices.put("Cheese", 2.25);
@@ -193,7 +200,7 @@ public class Sandwich extends Product {
         switch (size) {
             case ("4"):
                 setPrice(small_prices.get("Bread"));
-                if (meat != null) {
+                if (!meat.isBlank()) {
                     price += small_prices.get("Meat");
                     if (extra_meat) {
                         price += small_prices.get("Extra-Meat");

@@ -7,7 +7,7 @@ public class Chip extends Product{
     private String flavor;
 
     public Chip() {
-        super(1.50);
+        super();
     }
 
     public String getFlavor() {
@@ -19,7 +19,13 @@ public class Chip extends Product{
     }
 
     public double calcPrice(){
-        return this.price;
+        setPrice(1.50);
+        return getPrice();
+    }
+
+    @Override
+    public String toString(){
+        return String.format("Chip: price: %.2f \n", calcPrice() );
     }
 
 }

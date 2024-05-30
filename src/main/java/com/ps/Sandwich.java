@@ -248,6 +248,7 @@ public class Sandwich extends Product {
 
     @Override
     public String toString() {
+
         StringBuilder sandwich_order = new StringBuilder();
         sandwich_order.append("Sandwich Details:\n");
         sandwich_order.append("Size: ").append(size).append("\n");
@@ -260,6 +261,7 @@ public class Sandwich extends Product {
         sandwich_order.append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
         sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
+        sandwich_order.append("Price: ").append(calcPrice()).append("\n");
         return sandwich_order.toString();
     }
 

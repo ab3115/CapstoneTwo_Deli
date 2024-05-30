@@ -5,7 +5,6 @@ import java.util.HashMap;
 public class Drink extends Product{
 
     private String size;
-    private String flavor;
    private HashMap<String,Double> size_pricing;
 
     public Drink(String size) {
@@ -24,12 +23,24 @@ public class Drink extends Product{
     public double calcPrice(){
         switch (size){
             case("small"):
+                setPrice(size_pricing.get("small"));
                 break;
             case("medium"):
+                setPrice(size_pricing.get("medium"));
                 break;
             case("large"):
+                setPrice(size_pricing.get("large"));
                 break;
         }
-        return 0;
+        return getPrice();
     }
+
+    @Override
+    public String toString() {
+        return "Drink{" +
+                "size='" + size + '\'' +
+                ", price=" + getPrice() +
+                '}';
+    }
+
 }

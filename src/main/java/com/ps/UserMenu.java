@@ -80,7 +80,6 @@ public class UserMenu {
 
 
     public void addSandwich() {
-        boolean proceed = false;
         do {
             System.out.println("What sized sandwich would you like?");
             System.out.println("\t(1) - 4\"");
@@ -91,15 +90,15 @@ public class UserMenu {
                 switch (choice) {
                     case 1:
                         processAddSize("4");
-                        proceed = true;
+                        addBread();
                         break;
                     case 2:
                         processAddSize("8");
-                        proceed = true;
+                        addBread();
                         break;
                     case 3:
                         processAddSize("12");
-                        proceed = true;
+                        addBread();
                         break;
                     default:
                         System.out.println("Please enter a valid size.");
@@ -109,8 +108,7 @@ public class UserMenu {
                 System.out.println("Please choose from the avaliable.");
                 scanner.nextLine();
             }
-        } while (proceed);
-        addBread();
+        } while (!quit_menu);
     }
 
 
@@ -491,8 +489,32 @@ public class UserMenu {
     }
 
     public void checkout() {
-        System.out.println("You're order is:");
-        processCheckout();
+        do {
+            System.out.println("You're order is:");
+            processCheckout();
+            System.out.println("Would you like to confirm your order?");
+            System.out.println("\t(1)-Confirm and Pay");
+            System.out.println("\t(2)-Cancel Order");
+            try {
+                int input = scanner.nextInt();
+                switch (input){
+                    case 1:
+                        processConfirm();
+                        break;
+                    case 2:
+                        System.out.println("Returning to main menu....");
+                        quit_menu =true;
+                        break;
+                    default:
+                        System.out.println("Please choose an option.");
+                        break;
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Please enter a valid input.");
+                scanner.nextLine();
+            }
+        }while(!quit_menu);
     }
 
     public void adminScreen() {

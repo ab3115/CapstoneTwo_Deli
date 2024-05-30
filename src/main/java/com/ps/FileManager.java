@@ -3,14 +3,23 @@ package com.ps;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 public class FileManager {
 
-    public static void buffWriter(){
+    public static void buffWriter(ArrayList<Product> order) {
 
-        try{
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(""));
-        }catch (IOException e){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-hhmmss");
+        String formatted_date_time = localDateTime.format(formatter);
+        String file_name = formatted_date_time + ".txt";
+
+        try {
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file_name));
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

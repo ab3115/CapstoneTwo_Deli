@@ -1,5 +1,6 @@
 package com.ps;
 
+
 import java.util.ArrayList;
 
 public class Order {
@@ -19,12 +20,26 @@ public class Order {
         order.add(product);
     }
 
-    public void startSignatureSandwich(){
-
-    }
-
     public void startSandwich(String size) {
         add(sandwich = new Sandwich(size, "", "", "", false, false, false));
+    }
+
+    public void setSignatureSandwich(String choice){
+
+        switch (choice){
+            case("BLT"):
+                sandwich.setBLT();
+                return;
+            case("Philly"):
+                sandwich.setPhilly();
+                return;
+            case("Pulled Pork"):
+                sandwich.setPulled();
+                return;
+            case("Spring Lover"):
+                sandwich.setSpringLover();
+                return;
+        }
     }
 
     public void addBread(String bread) {
@@ -83,7 +98,7 @@ public class Order {
 
 
     public void checkOut() {
-        add(sandwich);
+        FileManager.buffWriter(order);
     }
 
 

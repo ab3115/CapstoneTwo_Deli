@@ -83,6 +83,10 @@ public class Sandwich extends Product {
         this.toppings = toppings;
     }
 
+    private void addToppings(String topping){
+        toppings.add(topping);
+    }
+
     public ArrayList<String> getSauces() {
         return sauces;
     }
@@ -91,12 +95,20 @@ public class Sandwich extends Product {
         this.sauces = sauces;
     }
 
+    private void addSauces(String sauce){
+        sauces.add(sauce);
+    }
+
     public ArrayList<String> getSides() {
         return sides;
     }
 
     public void setSides(ArrayList<String> sides) {
         this.sides = sides;
+    }
+
+    private void addSides(String side){
+        sides.add(side);
     }
 
     public boolean isExtra_meat() {
@@ -128,7 +140,42 @@ public class Sandwich extends Product {
         setBread("White");
         setMeat("Bacon");
         setCheese("Cheddar");
-        setToppings();
+        addToppings("Lettuce");
+        addToppings("Tomato");
+        addSauces("Ranch");
+        setToasted(true);
+    }
+
+    public void setPhilly(){
+        setSize("8");
+        setBread("White");
+        setMeat("Steak");
+        setCheese("American");
+        addToppings("Peppers");
+        addSauces("Mayo");
+        setToasted(true);
+    }
+
+    public void setPulled(){
+        setSize("8");
+        setBread("White");
+        setMeat("Ham");
+        addToppings("Onions");
+        addToppings("Jalapenos");
+        addSauces("Mustard");
+        setToasted(true);
+    }
+
+    public void setSpringLover(){
+        setSize("4");
+        setBread("Whole Wheat");
+        setMeat("Chicken");
+        addToppings("Lettuce");
+        addToppings("Tomatoes");
+        addToppings("Onions");
+        addToppings("Cucumbers");
+        addSauces("vinaigrette");
+        setToasted(false);
     }
 
 
@@ -207,7 +254,7 @@ public class Sandwich extends Product {
 
                     }
                 }
-                if (cheese != null) {
+                if (cheese.isBlank()) {
                     price += small_prices.get("Cheese");
                     if (extra_cheese) {
                         price += small_prices.get("Extra-Cheese");
@@ -217,14 +264,14 @@ public class Sandwich extends Product {
 
             case ("8"):
                 setPrice(medium_prices.get("Bread"));
-                if (meat != null) {
+                if (meat.isBlank()) {
                     price += medium_prices.get("Meat");
                     if (extra_meat) {
                         price += medium_prices.get("Extra-Meat");
 
                     }
                 }
-                if (cheese != null) {
+                if (cheese.isBlank()) {
                     price += medium_prices.get("Cheese");
                     if (extra_cheese) {
                         price += medium_prices.get("Extra-Cheese");
@@ -234,14 +281,14 @@ public class Sandwich extends Product {
 
             case ("12"):
                 setPrice(large_prices.get("Bread"));
-                if (meat != null) {
+                if (meat.isBlank()) {
                     price += large_prices.get("Meat");
                     if (extra_meat) {
                         price += large_prices.get("Extra-Meat");
 
                     }
                 }
-                if (cheese != null) {
+                if (cheese.isBlank()) {
                     price += large_prices.get("Cheese");
                     if (extra_cheese) {
                         price += large_prices.get("Extra-Cheese");

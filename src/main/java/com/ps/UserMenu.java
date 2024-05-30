@@ -489,6 +489,7 @@ public class UserMenu {
     }
 
     public void checkout() {
+        System.out.println("You're order is:");
 
     }
 
@@ -541,6 +542,10 @@ public class UserMenu {
     }
     public void processAddChip(){
         order.addChip();
+    }
+
+    public void processCheckout(){
+
     }
 
 }

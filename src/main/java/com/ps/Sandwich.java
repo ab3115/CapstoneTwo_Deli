@@ -39,6 +39,9 @@ public class Sandwich extends Product{
         setAvaliable_toppings();
         setAvaliable_sauces();
         setAvaliable_sides();
+        setSmall_prices();
+        setMedium_prices();
+        setLarge_prices();
     }
 
     public String getSize() {
@@ -166,12 +169,52 @@ public class Sandwich extends Product{
         small_prices.put("Meat",1.00 );
         small_prices.put("Cheese",0.75 );
         small_prices.put("Extra-Meat",0.50);
+        small_prices.put("Extra-Cheese",0.30);
+    }
+
+    public void setMedium_prices(){
+        medium_prices.put("Bread", 7.00);
+        medium_prices.put("Meat",2.00);
+        medium_prices.put("Cheese",1.50);
+        medium_prices.put("Extra-Meat", 1.00);
+        medium_prices.put("Extra-Cheese",0.60);
+    }
+
+    public void setLarge_prices(){
+        large_prices.put("Bread", 8.50);
+        large_prices.put("Meat",3.00);
+        large_prices.put("Cheese",2.25);
+        large_prices.put("Extra-Meat", 1.50);
+        large_prices.put("Extra-Cheese",0.90);
     }
 
     @Override
     public double calcPrice() {
+        if(size.equals("4")){
+            
+        }else if(size.equals("8")){
+            
+        } else if(size.equals("12")) {
+            
+        }
         return 0;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sandwich_order = new StringBuilder();
+        sandwich_order .append("Sandwich Details:\n");
+        sandwich_order .append("Size: ").append(size).append("\n");
+        sandwich_order .append("Bread: ").append(bread).append("\n");
+        sandwich_order .append("Meat: ").append(meat).append("\n");
+        sandwich_order .append("Cheese: ").append(cheese).append("\n");
+        sandwich_order .append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("\n");
+        sandwich_order .append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("\n");
+        sandwich_order .append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("\n");
+        sandwich_order .append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
+        sandwich_order .append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
+        sandwich_order .append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
+        return sandwich_order .toString();
+    }
 
 }

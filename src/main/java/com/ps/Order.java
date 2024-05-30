@@ -65,4 +65,8 @@ public void addChip(){
         chips = new Chip();
 }
 
+public String displayOrder(){
+        return sandwich.toString();
+}
+
 }

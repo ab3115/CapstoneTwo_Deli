@@ -545,7 +545,7 @@ public class UserMenu {
         do {
             System.out.println("You're order is:");
             processCheckout();
-            System.out.println("Would you like to confirm your order?");
+            System.out.println("Would you like to your order?");
             System.out.println("\t(1)-Confirm and Pay");
             System.out.println("\t(2)-Cancel Order");
             try {

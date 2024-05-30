@@ -1,4 +1,5 @@
-20240530-050359Sandwich Details:
+20240530-050359
+Sandwich Details:
 Size: 12
 Bread: Whole Wheatcalories: 0.0
 Meat: Salamicalories: 220.0

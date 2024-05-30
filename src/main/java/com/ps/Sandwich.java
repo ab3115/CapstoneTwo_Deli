@@ -358,7 +358,7 @@ public class Sandwich extends Product implements Edible {
     public String toString() {
 
         StringBuilder sandwich_order = new StringBuilder();
-        sandwich_order.append("Sandwich Details:\n");
+        sandwich_order.append("\nSandwich Details:\n");
         sandwich_order.append("Size: ").append(size).append("\n");
         sandwich_order.append("Bread: ").append(bread).append("calories: ").append(calcBreadCals()).append("\n");
         sandwich_order.append("Meat: ").append(meat).append("calories: ").append(calcMeatCals()).append("\n");
@@ -414,12 +414,16 @@ public class Sandwich extends Product implements Edible {
         for (int i = 0;i < topping_calories.size();i++){
             if (!meat.isBlank()) {
                 if(topping_calories.get(i).getName().equalsIgnoreCase(meat)){
-                    meat_cals = topping_calories.get(i).getCalories();
-
+                    if(isExtra_meat()){
+                        meat_cals = 1.8 * topping_calories.get(i).getCalories();
+                    }else {
+                        meat_cals = topping_calories.get(i).getCalories();
+                    }
                 }
 
+                }
             }
-        }
+
 
         if(size.equals("8")){
             meat_cals *= 1.5;
@@ -435,8 +439,11 @@ public class Sandwich extends Product implements Edible {
         for(int i = 0;i < topping_calories.size();i++) {
             if (!cheese.isBlank()) {
                 if (topping_calories.get(i).getName().equalsIgnoreCase(cheese)) {
-                   cheese_cals = topping_calories.get(i).getCalories();
-
+                    if(isExtra_cheese()){
+                        cheese_cals = 1.8 * topping_calories.get(i).getCalories();
+                    }else {
+                        cheese_cals = topping_calories.get(i).getCalories();
+                    }
                 }
             }
         }

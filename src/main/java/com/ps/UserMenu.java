@@ -9,7 +9,7 @@ public class UserMenu {
 
     static Scanner scanner = new Scanner(System.in);
     static boolean quit_menu = false;
-    private Order order;
+    private Order order = new Order();;
 
 
     public void homeScreen() {
@@ -22,7 +22,6 @@ public class UserMenu {
 
                 switch (input) {
                     case (1):
-                        order = new Order();
                         orderScreen();
                         break;
                     case (2):
@@ -92,15 +91,19 @@ public class UserMenu {
                         break;
                     case 2:
                         processMakeSignature("BLT");
+                        addDrink();
                         break;
                     case 3:
                         processMakeSignature("Philly");
+                        addDrink();
                         break;
                     case 4:
                         processMakeSignature("Pulled Pork");
+                        addDrink();
                         break;
                     case 5:
                         processMakeSignature("Spring Lover");
+                        addDrink();
                         break;
                     default:
                         System.out.println("Please choose from the above options.");
@@ -111,7 +114,6 @@ public class UserMenu {
                 scanner.nextLine();
             }
         } while (!quit_menu);
-        addCustomSandwich();
     }
 
 
@@ -537,19 +539,27 @@ public class UserMenu {
 
     public void checkout() {
         do {
-            System.out.println("You're order is:");
+            System.out.println("YOUR ORDER IS:");
             processCheckout();
-            System.out.println("Would you like to your order?");
+            System.out.println("Is there anything else you'd like to add to your order?");
             System.out.println("\t(1)-Confirm and Pay");
-            System.out.println("\t(2)-Cancel Order");
+            System.out.println("\t(2)-Buy Another Sandwich!");
+            System.out.println("\t(3)-Cancel Order");
             try {
                 int input = scanner.nextInt();
                 switch (input) {
                     case 1:
+//                        processAddSandwich();
                         processConfirm();
                         quit_menu = true;
                         break;
                     case 2:
+                        processStartSandwich();
+                        chooseSandwich();
+                        quit_menu = true;
+                        break;
+                    case 3:
+                        processCancelOrder();
                         System.out.println("Returning to main menu....");
                         quit_menu = true;
                         break;
@@ -619,16 +629,21 @@ public class UserMenu {
     }
 
     public void processCheckout() {
+
         order.displayOrder();
     }
 
     public void processConfirm() {
-        order.checkOut();
+        order.printReceipt();
     }
+
 
     public void processMakeSignature(String choice) {
         order.setSignatureSandwich(choice);
     }
 
+    public void processCancelOrder(){
+        order.clearOrder();
+    }
 
 }

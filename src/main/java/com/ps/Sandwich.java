@@ -38,6 +38,9 @@ public class Sandwich extends Product implements Edible {
         this.cheese = cheese;
         this.extra_meat = extra_meat;
         this.extra_cheese = extra_cheese;
+        toppings = new ArrayList<>();
+        sauces = new ArrayList<>();
+        sides = new ArrayList<>();
         this.toasted = toasted;
         this.total_calories = 0;
         setAvaliable_toppings();

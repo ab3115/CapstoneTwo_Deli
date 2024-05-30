@@ -24,7 +24,11 @@ public class Order {
     }
 
     public void startSandwich() {
-        add(sandwich = new Sandwich("", "", "", "", false, false, false));
+       add( sandwich = new Sandwich("", "", "", "", false, false, false));
+    }
+
+    public void clearOrder(){
+        order.clear();
     }
 
     public void setSignatureSandwich(String choice){
@@ -117,9 +121,7 @@ public class Order {
     }
 
 
-
-
-    public void checkOut() {
+    public void printReceipt() {
         FileManager.buffWriter(order);
     }
 

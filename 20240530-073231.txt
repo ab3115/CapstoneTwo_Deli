@@ -1,0 +1,30 @@
+20240530-073231
+Sandwich Details:
+Size: 8
+Bread: Rye calories: 80.0
+Meat: Steak calories: 135.0
+Cheese: American calories: 157.5
+Toppings:  calories: 0.0
+Sauces:  calories: 0.0
+Sides:  calories: 0.0
+Extra Meat: No
+Extra Cheese: No
+Toasted: No
+Price: 7.0
+Calories: 372.5
+Drink: size: small flavor: coke price: 2.00 calories: 170.00
+
+Sandwich Details:
+Size: 12
+Bread: White calories: 252.0
+Meat: Steak calories: 324.0
+Cheese: American calories: 378.0
+Toppings:  calories: 0.0
+Sauces:  calories: 0.0
+Sides:  calories: 0.0
+Extra Meat: Yes
+Extra Cheese: Yes
+Toasted: Yes
+Price: 8.5
+Calories: 954.0
+Chip: flavor: Doritos price: 1.50 calories: 150.00

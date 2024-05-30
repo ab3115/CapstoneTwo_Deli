@@ -8,6 +8,7 @@ public class Sandwich extends Product{
     private HashMap<String,Double> small_prices = new HashMap<>();
     private HashMap<String,Double> medium_prices = new HashMap<>();
     private HashMap<String,Double> large_prices = new HashMap<>();
+    private ArrayList<String> avaliable_toppings = new ArrayList<>();
 
     private String size;
     private String bread;
@@ -30,6 +31,7 @@ public class Sandwich extends Product{
         this.extra_meat = extra_meat;
         this.extra_cheese = extra_cheese;
         this.toasted = toasted;
+        setAvaliable_toppings();
     }
 
     public String getSize() {
@@ -94,6 +96,30 @@ public class Sandwich extends Product{
 
     public void setToasted(boolean toasted) {
         this.toasted = toasted;
+    }
+
+
+    public void setAvaliable_toppings(){
+        avaliable_toppings.add("Lettuce");
+        avaliable_toppings.add("Peppers");
+        avaliable_toppings.add("Onions");
+        avaliable_toppings.add("Tomatoes");
+        avaliable_toppings.add("Jalapenos");
+        avaliable_toppings.add("Cucumbers");
+        avaliable_toppings.add("Pickles");
+        avaliable_toppings.add("Guacamole");
+        avaliable_toppings.add("Mushrooms");
+    }
+
+    public ArrayList<String> getAvaliable_toppings(){
+        return avaliable_toppings;
+    }
+
+    public void setSmall_prices(){
+        small_prices.put("Bread",5.50 );
+        small_prices.put("Meat",1.00 );
+        small_prices.put("Cheese",0.75 );
+        small_prices.put("Extra-Meat",0.50);
     }
 
     @Override

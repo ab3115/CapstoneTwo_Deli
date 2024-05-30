@@ -4,9 +4,13 @@ import java.util.ArrayList;
 
 public class Order {
 
-    private ArrayList<Product> order = new ArrayList<>();
+
+    private ArrayList<Product> order;
     Sandwich sandwich;
 
+    public Order(){
+        order = new ArrayList<>();
+    }
    public void add(Product product){
        order.add(product);
    }
@@ -35,8 +39,8 @@ public void addExtraCheese(boolean extra_cheese){
        sandwich.setExtra_cheese(extra_cheese);
 }
 
-public void addTopping(){
-
+public void addTopping(ArrayList<String> toppings){
+        sandwich.setToppings(toppings);
 }
 
 

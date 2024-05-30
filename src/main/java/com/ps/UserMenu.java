@@ -1,5 +1,6 @@
 package com.ps;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -21,6 +22,7 @@ public class UserMenu {
 
                        switch (input){
                            case(1):
+                               order = new Order();
                                orderScreen();
                                break;
                            case (2):
@@ -170,21 +172,27 @@ public void addMeat(){
                switch(input){
                    case 1:
                        processAddMeat("Steak");
+                       extraMeat();
                        break;
                    case 2:
                        processAddMeat("Ham");
+                       extraMeat();
                        break;
                    case 3:
                        processAddMeat("Salami");
+                       extraMeat();
                        break;
                    case 4:
                        processAddMeat("Roast Beef");
+                       extraMeat();
                        break;
                    case 5:
                        processAddMeat("Chicken");
+                       extraMeat();
                        break;
                    case 6:
                        processAddMeat("Bacon");
+                       extraMeat();
                        break;
                    default:
                        System.out.println("Please choose a valid option.");
@@ -214,12 +222,15 @@ public void extraMeat(){
                    case 1:
                        extra_meat = true;
                        processExtraMeat(true);
+                       addCheese();
                        break;
                    case 2:
                        extra_meat = false;
                        processExtraMeat(false);
+                       addCheese();
                        break;
                    default:
+                       System.out.println("Please choose yes or no.");
                        break;
                }
            }catch (InputMismatchException e) {
@@ -243,15 +254,19 @@ public void addCheese(){
                switch (input){
                    case 1:
                        processAddCheese("American");
+                       extraCheese();
                        break;
                    case 2:
                        processAddCheese("Provolone");
+                       extraCheese();
                        break;
                    case 3:
                        processAddCheese("Cheddar");
+                       extraCheese();
                        break;
                    case 4:
                        processAddCheese("Swiss");
+                       extraCheese();
                        break;
                    default:
                        System.out.println("Please choose a valid option");
@@ -263,6 +278,78 @@ public void addCheese(){
                scanner.nextLine();
            }
        }while(!quit_menu);
+}
+
+
+
+
+public void extraCheese(){
+       do{  System.out.println("Would you like extra cheese?");
+           System.out.println("\t(1)-Yes");
+           System.out.println("\t(2)-No");
+           try{
+               int choice = scanner.nextInt();
+               boolean extra_cheese;
+
+               switch (choice){
+                   case 1:
+                       extra_cheese = true;
+                       processExtraCheese(true);
+                       addToppingsMenu();
+                       break;
+                   case 2:
+                       extra_cheese= false;
+                       processExtraCheese(false);
+                       addToppingsMenu();
+                       break;
+                   default:
+                       System.out.println("Please choose yes or no.");
+                       break;
+               }
+           }catch (InputMismatchException e) {
+               System.out.println("Please enter a valid option.");
+               scanner.nextLine();
+           }
+
+       }while(!quit_menu);
+}
+
+
+
+public void addToppingsMenu(){
+       ArrayList<String> user_selection = new ArrayList<>();
+    ArrayList<String> topping_menu = order.sandwich.getAvaliable_toppings();
+    boolean continue_choosing = true;
+       while(continue_choosing) {
+           for (int i = 0; i < topping_menu.size(); i++) {
+               System.out.println(topping_menu.get(i));
+           }
+           System.out.println("Choose the toppings would you like on your sandwich");
+           System.out.println("Enter topping name or write \"None\" to proceed ");
+
+           try {
+               for (int i = 0; i < topping_menu.size(); i++) {
+                   String input = scanner.next();
+                   if (input.equalsIgnoreCase("none")) {
+                       continue_choosing = false;
+                   } else if (input.equalsIgnoreCase(topping_menu.get(i))) {
+                       user_selection.add(input);
+                       topping_menu.remove(i);
+
+                   }else {
+                       System.out.println("Please select a choice from the menu.");
+                   }
+               }
+           }catch (InputMismatchException e){
+               System.out.println("Not a valid option.");
+           }
+       }
+       processAddToppings(user_selection);
+
+}
+
+public void addSauces(){
+
 }
 
 
@@ -303,6 +390,10 @@ public void processExtraMeat(boolean extra_meat){
 
 public void processExtraCheese(boolean extra_cheese){
        order.addExtraCheese(extra_cheese);
+}
+
+public void processAddToppings(ArrayList<String> toppings){
+       order.addTopping(toppings);
 }
 
 }

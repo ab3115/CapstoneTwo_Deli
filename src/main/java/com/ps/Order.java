@@ -68,5 +68,9 @@ public void addChip(){
 public String displayOrder(){
         return sandwich.toString();
 }
+public void checkOut(){
+        add(sandwich);
+}
+
 
 }

@@ -3,11 +3,11 @@ package com.ps;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Sandwich extends Product{
+public class Sandwich extends Product {
 
-    private HashMap<String,Double> small_prices = new HashMap<>();
-    private HashMap<String,Double> medium_prices = new HashMap<>();
-    private HashMap<String,Double> large_prices = new HashMap<>();
+    private HashMap<String, Double> small_prices = new HashMap<>();
+    private HashMap<String, Double> medium_prices = new HashMap<>();
+    private HashMap<String, Double> large_prices = new HashMap<>();
     private ArrayList<String> avaliable_toppings = new ArrayList<>();
     private ArrayList<String> avaliable_sauces = new ArrayList<>();
     private ArrayList<String> avaliable_sides = new ArrayList<>();
@@ -26,7 +26,7 @@ public class Sandwich extends Product{
 
     public Sandwich(double price, String size, String bread,
                     String meat, String cheese,
-                     boolean extra_meat,
+                    boolean extra_meat,
                     boolean extra_cheese, boolean toasted) {
         super(price);
         this.size = size;
@@ -125,7 +125,7 @@ public class Sandwich extends Product{
     }
 
 
-    private void setAvaliable_toppings(){
+    private void setAvaliable_toppings() {
         avaliable_toppings.add("lettuce");
         avaliable_toppings.add("peppers");
         avaliable_toppings.add("onions");
@@ -137,11 +137,11 @@ public class Sandwich extends Product{
         avaliable_toppings.add("mushrooms");
     }
 
-    public ArrayList<String> getAvaliable_toppings(){
+    public ArrayList<String> getAvaliable_toppings() {
         return avaliable_toppings;
     }
 
-    private void setAvaliable_sauces(){
+    private void setAvaliable_sauces() {
         avaliable_sauces.add("mayo");
         avaliable_sauces.add("mustard");
         avaliable_sauces.add("ketchup");
@@ -151,70 +151,116 @@ public class Sandwich extends Product{
 
     }
 
-    public ArrayList<String> getAvaliable_sauces(){
+    public ArrayList<String> getAvaliable_sauces() {
         return avaliable_sauces;
     }
 
-    private void setAvaliable_sides(){
+    private void setAvaliable_sides() {
         avaliable_sides.add("au jus");
         avaliable_sides.add("sauce");
     }
 
-    public ArrayList<String> getAvaliable_sides(){
+    public ArrayList<String> getAvaliable_sides() {
         return avaliable_sides;
     }
 
-    public void setSmall_prices(){
-        small_prices.put("Bread",5.50 );
-        small_prices.put("Meat",1.00 );
-        small_prices.put("Cheese",0.75 );
-        small_prices.put("Extra-Meat",0.50);
-        small_prices.put("Extra-Cheese",0.30);
+    public void setSmall_prices() {
+        small_prices.put("Bread", 5.50);
+        small_prices.put("Meat", 1.00);
+        small_prices.put("Cheese", 0.75);
+        small_prices.put("Extra-Meat", 0.50);
+        small_prices.put("Extra-Cheese", 0.30);
     }
 
-    public void setMedium_prices(){
+    public void setMedium_prices() {
         medium_prices.put("Bread", 7.00);
-        medium_prices.put("Meat",2.00);
-        medium_prices.put("Cheese",1.50);
+        medium_prices.put("Meat", 2.00);
+        medium_prices.put("Cheese", 1.50);
         medium_prices.put("Extra-Meat", 1.00);
-        medium_prices.put("Extra-Cheese",0.60);
+        medium_prices.put("Extra-Cheese", 0.60);
     }
 
-    public void setLarge_prices(){
+    public void setLarge_prices() {
         large_prices.put("Bread", 8.50);
-        large_prices.put("Meat",3.00);
-        large_prices.put("Cheese",2.25);
+        large_prices.put("Meat", 3.00);
+        large_prices.put("Cheese", 2.25);
         large_prices.put("Extra-Meat", 1.50);
-        large_prices.put("Extra-Cheese",0.90);
+        large_prices.put("Extra-Cheese", 0.90);
     }
 
     @Override
     public double calcPrice() {
-        if(size.equals("4")){
-            
-        }else if(size.equals("8")){
-            
-        } else if(size.equals("12")) {
-            
+        switch (size) {
+            case ("4"):
+                setPrice(small_prices.get("Bread"));
+                if (meat != null) {
+                    price += small_prices.get("Meat");
+                    if (extra_meat) {
+                        price += small_prices.get("Extra-Meat");
+
+                    }
+                }
+                if (cheese != null) {
+                    price += small_prices.get("Cheese");
+                    if (extra_cheese) {
+                        price += small_prices.get("Extra-Cheese");
+                    }
+                }
+                break;
+
+            case ("8"):
+                setPrice(medium_prices.get("Bread"));
+                if (meat != null) {
+                    price += medium_prices.get("Meat");
+                    if (extra_meat) {
+                        price += medium_prices.get("Extra-Meat");
+
+                    }
+                }
+                if (cheese != null) {
+                    price += medium_prices.get("Cheese");
+                    if (extra_cheese) {
+                        price += medium_prices.get("Extra-Cheese");
+                    }
+                }
+                break;
+
+            case ("12"):
+                setPrice(large_prices.get("Bread"));
+                if (meat != null) {
+                    price += large_prices.get("Meat");
+                    if (extra_meat) {
+                        price += large_prices.get("Extra-Meat");
+
+                    }
+                }
+                if (cheese != null) {
+                    price += large_prices.get("Cheese");
+                    if (extra_cheese) {
+                        price += large_prices.get("Extra-Cheese");
+                    }
+                }
+                break;
         }
-        return 0;
+        setPrice(price);
+        return price;
     }
 
     @Override
     public String toString() {
         StringBuilder sandwich_order = new StringBuilder();
-        sandwich_order .append("Sandwich Details:\n");
-        sandwich_order .append("Size: ").append(size).append("\n");
-        sandwich_order .append("Bread: ").append(bread).append("\n");
-        sandwich_order .append("Meat: ").append(meat).append("\n");
-        sandwich_order .append("Cheese: ").append(cheese).append("\n");
-        sandwich_order .append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("\n");
-        sandwich_order .append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("\n");
-        sandwich_order .append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("\n");
-        sandwich_order .append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
-        sandwich_order .append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
-        sandwich_order .append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
-        return sandwich_order .toString();
+        sandwich_order.append("Sandwich Details:\n");
+        sandwich_order.append("Size: ").append(size).append("\n");
+        sandwich_order.append("Bread: ").append(bread).append("\n");
+        sandwich_order.append("Meat: ").append(meat).append("\n");
+        sandwich_order.append("Cheese: ").append(cheese).append("\n");
+        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append("\n");
+        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append("\n");
+        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append("\n");
+        sandwich_order.append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
+        sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
+        sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
+        return sandwich_order.toString();
     }
 
 }

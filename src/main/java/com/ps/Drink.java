@@ -22,6 +22,14 @@ public class Drink extends Product{
 
 
     public double calcPrice(){
+        switch (size){
+            case("small"):
+                break;
+            case("medium"):
+                break;
+            case("large"):
+                break;
+        }
         return 0;
     }
 }

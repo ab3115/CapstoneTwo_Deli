@@ -365,6 +365,7 @@ public class UserMenu {
             }
         }
         processAddSauces(user_choices);
+        addSide();
 
     }
 
@@ -490,7 +491,7 @@ public class UserMenu {
 
     public void checkout() {
         System.out.println("You're order is:");
-
+        processCheckout();
     }
 
     public void adminScreen() {
@@ -545,7 +546,7 @@ public class UserMenu {
     }
 
     public void processCheckout(){
-
+        System.out.println(order.displayOrder());
     }
 
 }

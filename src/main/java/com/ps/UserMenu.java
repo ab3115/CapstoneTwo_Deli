@@ -579,6 +579,7 @@ public class UserMenu {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Please choose valid option.\n");
+                scanner.nextLine();
             }
         } while (!quit_menu);
     }

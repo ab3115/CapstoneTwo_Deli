@@ -10,6 +10,7 @@ An XML Diagram of my project, focusing on implementing two interfaces to optimal
 ![Screenshot 2024-05-31 084352.png](Screenshot%202024-05-31%20084352.png)
 ![Screenshot 2024-05-31 084431.png](Screenshot%202024-05-31%20084431.png)
 ![Screenshot 2024-05-31 084528.png](Screenshot%202024-05-31%20084528.png)
+![Screenshot 2024-05-31 084551.png](Screenshot%202024-05-31%20084551.png)
 ![Screenshot 2024-05-31 084622.png](Screenshot%202024-05-31%20084622.png)
 ![Screenshot 2024-05-31 084019.png](Screenshot%202024-05-31%20084019.png)
 -An interesting peice of my code that I liked, although not the biggest feature, is the way my toppings are presented to the user as a list which reduces with each topping selected. I really liked the way this function appeared, however I also like it because it made me realize how else I could have deisgned the program, as I could have made ingredients as a static method so every sandwich could have the same preset ingredient set which, which could be very beneficial if an inventory system were to be implemented later on.

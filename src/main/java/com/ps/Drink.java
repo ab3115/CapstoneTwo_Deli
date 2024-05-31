@@ -73,7 +73,7 @@ public class Drink extends Product implements Edible{
     @Override
     public String toString() {
 
-        return String.format("DRINK: SIZE: %s FLAVOR: %s PRICE: %.2f CALORIES: %.2f\n",size,flavor, calcPrice(), calcCalories());
+        return String.format("DRINK: SIZE: %s FLAVOR: %s PRICE: $%.2f CALORIES: %.2f\n",size,flavor, calcPrice(), calcCalories());
 
     }
 

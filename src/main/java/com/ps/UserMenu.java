@@ -290,6 +290,8 @@ public class UserMenu {
     }
 
 
+
+
     public void addCheese() {
         do {
             System.out.println("What kind of cheese would you like?");
@@ -328,6 +330,7 @@ public class UserMenu {
             }
         } while (!quit_menu);
     }
+
 
 
     public void extraCheese() {
@@ -401,6 +404,7 @@ public class UserMenu {
     }
 
 
+
     public void addSauces() {
         ArrayList<String> user_choices = new ArrayList<>();
         ArrayList<String> sauce_menu = new ArrayList<>();
@@ -428,9 +432,9 @@ public class UserMenu {
                 scanner.nextLine();
             }
         }
+
         processAddSauces(user_choices);
         addSide();
-
     }
 
     public void addSide() {
@@ -562,7 +566,7 @@ public class UserMenu {
         do {
             System.out.println("YOUR ORDER IS:");
             processCheckout();
-            System.out.println("Is there anything else you'd like to add to your order?");
+            System.out.println("\nIs there anything else you'd like to add to your order?");
             System.out.println("\t(1)-Confirm and Pay");
             System.out.println("\t(2)-Add a Sandwich!");
             System.out.println("\t(3)-Cancel Order");
@@ -570,8 +574,9 @@ public class UserMenu {
                 int input = scanner.nextInt();
                 switch (input) {
                     case 1:
-//                        processAddSandwich();
                         processConfirm();
+                        System.out.println("Thank You for your business!");
+                        homeScreen();
                         quit_menu = true;
                         break;
                     case 2:
@@ -581,16 +586,16 @@ public class UserMenu {
                         break;
                     case 3:
                         processCancelOrder();
-                        homeScreen();
                         System.out.println("Returning to main menu....");
+                        homeScreen();
                         break;
                     default:
-                        System.out.println("Please choose an option.");
+                        System.out.println("Please select a valid choice.");
                         break;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid input.");
+                System.out.println("Please enter a valid number.");
                 scanner.nextLine();
             }
         } while (!quit_menu);

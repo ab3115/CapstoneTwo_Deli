@@ -34,7 +34,7 @@ public class Chip extends Product implements Edible{
 
     @Override
     public String toString(){
-        return String.format("CHIP: FLAVOR: %s PRICE: %.2f CALORIES: %.2f\n",getFlavor(),calcPrice(),calcCalories() );
+        return String.format("CHIP: FLAVOR: %s PRICE: $%.2f CALORIES: %.2f\n",getFlavor(),calcPrice(),calcCalories() );
     }
 
     @Override

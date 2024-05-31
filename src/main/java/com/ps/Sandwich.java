@@ -362,13 +362,19 @@ public class Sandwich extends Product implements Edible {
 
         StringBuilder sandwich_order = new StringBuilder();
         sandwich_order.append("\nSandwich Details:\n");
-        sandwich_order.append("SIZE: ").append(size).append("\n");
-        sandwich_order.append("BREAD: ").append(bread).append("   CALORIES: ").append(calcBreadCals()).append("\n");
-        sandwich_order.append("MEAT: ").append(meat).append("   CALORIES: ").append(calcMeatCals()).append("\n");
-        sandwich_order.append("CHEESE: ").append(cheese).append(" CALORIES: ").append(calcCheeseCals()).append("\n");
-        sandwich_order.append("TOPPINGS: ").append(toppings != null ? String.join(", ", toppings) : "None").append("   CALORIES: ").append(calcToppingCals()).append("\n");
-        sandwich_order.append("SAUCES: ").append(sauces != null ? String.join(", ", sauces) : "None").append("   CALORIES: ").append(calcSaucesCals()).append("\n");
-        sandwich_order.append("SIDES: ").append(sides != null ? String.join(", ", sides) : "None").append("   CALORIES: ").append(calcSidesCals()).append("\n");
+        sandwich_order.append("SIZE: ").append(size).append("\"").append("\n");
+        sandwich_order.append("BREAD: ").append(bread).append("\n");
+        sandwich_order.append("CALORIES: ").append(calcBreadCals()).append("\n");
+        sandwich_order.append("MEAT: ").append(meat).append("\n");
+        sandwich_order.append("CALORIES: ").append(calcMeatCals()).append("\n");
+        sandwich_order.append("CHEESE: ").append(cheese).append("\n");
+        sandwich_order.append("CALORIES: ").append(calcCheeseCals()).append("\n");
+        sandwich_order.append("TOPPINGS: ").append(toppings != null ? String.join(", ",toppings) : "None").append("\n");
+        sandwich_order.append("CALORIES: ").append(calcToppingCals()).append("\n");
+        sandwich_order.append("SAUCES: ").append(sauces != null ? String.join(", ", sauces) : "None").append("\n");
+        sandwich_order.append("CALORIES: ").append(calcSaucesCals()).append("\n");
+        sandwich_order.append("SIDES: ").append(sides != null ? String.join(", ", sides) : "None").append("\n");
+        sandwich_order.append("CALORIES: ").append(calcSidesCals()).append("\n");
         sandwich_order.append("EXTRA MEAT: ").append(extra_meat ? "Yes" : "No").append("\n");
         sandwich_order.append("EXTRA CHEESE: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("TOASTED: ").append(toasted ? "Yes" : "No").append("\n");
@@ -380,11 +386,11 @@ public class Sandwich extends Product implements Edible {
     @Override
     public double calcCalories() {
 
-        double bread_cals = calcBreadCals();
-        double meat_cals = calcMeatCals();
-        double cheese_cals = calcCheeseCals();
-        double toppings_cals = calcToppingCals();
-        double sauces_cals = calcSaucesCals();
+        double bread_cals = Math.floor(calcBreadCals());
+        double meat_cals = Math.floor(calcMeatCals());
+        double cheese_cals = Math.floor(calcCheeseCals());
+        double toppings_cals = Math.floor(calcToppingCals());
+        double sauces_cals = Math.floor(calcSaucesCals());
         double sides_cals = calcSidesCals();
          setTotal_calories(bread_cals + meat_cals + cheese_cals + toppings_cals + sauces_cals + sides_cals);
         return  getTotal_calories();

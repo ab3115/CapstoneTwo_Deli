@@ -11,11 +11,12 @@ public class UserMenu {
     static Scanner scanner = new Scanner(System.in);
     static boolean quit_menu = false;
     private Order order = new Order();
-    ;
+
 
 
     public void homeScreen() {
         do {
+            StringBuilder sb = new StringBuilder();
             System.out.println("\n                        /////////////////////////////////////////");
             System.out.println("                         //                                     //");
             System.out.println("                           //   Welcome to Ocky's Sandwich shop!  //");
@@ -24,6 +25,7 @@ public class UserMenu {
             System.out.println("                     //        \t(2)-Exit App.              //");
             System.out.println("                    //                                     //");
             System.out.println("                   /////////////////////////////////////////");
+
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -79,6 +81,8 @@ public class UserMenu {
             }
         } while (!quit_menu);
     }
+
+
 
     public void chooseSandwich() {
         do {
@@ -376,7 +380,7 @@ public class UserMenu {
             String input;
             try {
                 input = scanner.nextLine().toLowerCase();
-                if(inputChecker(input)) {
+
                     if (input.equalsIgnoreCase("none") || topping_menu.isEmpty()) {
                         continue_choosing = false;
                     } else if (topping_menu.contains(input)) {
@@ -385,7 +389,7 @@ public class UserMenu {
                     } else {
                         System.out.println("\nPlease select a choice from the menu.");
                     }
-                }
+
 
             } catch (InputMismatchException e) {
                 System.out.println("Not a valid option.\n");
@@ -411,7 +415,6 @@ public class UserMenu {
             String input;
             try {
                 input = scanner.nextLine().toLowerCase();
-                if(inputChecker(input)) {
                     if (input.equalsIgnoreCase("none") || sauce_menu.isEmpty()) {
                         continue_choosing = false;
                     } else if (sauce_menu.contains(input)) {
@@ -420,7 +423,6 @@ public class UserMenu {
                     } else {
                         System.out.println("Please select a choice from the menu.\n");
                     }
-                }
             } catch (InputMismatchException e) {
                 System.out.println("Not a valid option.\n");
                 scanner.nextLine();
@@ -664,16 +666,6 @@ public class UserMenu {
     public void processCancelOrder() {
         order.clearOrder();
     }
-    //CHECKS IF INPUT IS ONE WORD
-    public boolean inputChecker(String input){
-        String[] space_checker = input.split(" ");
-        if(space_checker.length != 1){
-            System.out.println("Please enter only one topping");
-            return false;
-        }
-        return true;
-    }
-
 
 
 }

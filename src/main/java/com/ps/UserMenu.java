@@ -13,19 +13,13 @@ public class UserMenu {
     private Order order = new Order();
 
 
-
     public void homeScreen() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-New Order");
+        menu_options.add("(2)-Exit App.");
+        String title = "Welcome to The Ocky's Sandwich shop!";
         do {
-            StringBuilder sb = new StringBuilder();
-            System.out.println("\n                        /////////////////////////////////////////");
-            System.out.println("                         //                                     //");
-            System.out.println("                           //   Welcome to Ocky's Sandwich shop!  //");
-            System.out.println("                        //                                     //");
-            System.out.println("                         //        \t(1)-New Order              // ");
-            System.out.println("                     //        \t(2)-Exit App.              //");
-            System.out.println("                    //                                     //");
-            System.out.println("                   /////////////////////////////////////////");
-
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -50,11 +44,14 @@ public class UserMenu {
 
 
     public void orderScreen() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Add Sandwich");
+        menu_options.add("(2)-Add Drink");
+        menu_options.add("(3)-Add Chips");
+        menu_options.add("(4)-Return");
+        String title = "MENU";
         do {
-            System.out.println("\t(1)-Add Sandwich");
-            System.out.println("\t(2)-Add Drink");
-            System.out.println("\t(3)-Add Chips");
-            System.out.println("\t(4)-Return");
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -83,16 +80,17 @@ public class UserMenu {
     }
 
 
-
     public void chooseSandwich() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Make my own sandwich.");
+        menu_options.add("(2)-Make a BLT");
+        menu_options.add("(3)-Make a Philly Cheese Steak");
+        menu_options.add("(4)-Make a Pulled Pork Sub");
+        menu_options.add("(5)-Make a Spring Lovers.");
+        String title = "Would you like to try any of our signature sandwiches?!";
+        String subtitle = "Or create your own custom sandwich from scratch?";
         do {
-            System.out.println("Would you like to try any of our signature sandwiches?!");
-            System.out.println("Or create your own custom sandwich from scratch?");
-            System.out.println("\t(1)-Make my own sandwich.");
-            System.out.println("\t(2)-Make a BLT");
-            System.out.println("\t(3)-Make a Philly Cheese Steak");
-            System.out.println("\t(4)-Make a Pulled Pork Sub");
-            System.out.println("\t(5)-Make a Spring Lovers.");
+            MenuBuilder.printMenu(title, subtitle, menu_options);
             try {
                 int option = scanner.nextInt();
                 switch (option) {
@@ -132,12 +130,13 @@ public class UserMenu {
 
 
     public void addCustomSandwich() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1) - 4\"");
+        menu_options.add("(2) - 8\"");
+        menu_options.add("(3) - 12\"");
+        String title = "What sized sandwich would you like?";
         do {
-            System.out.println("What sized sandwich would you like?");
-            System.out.println("\t(1) - 4\"");
-            System.out.println("\t(2) - 8\"");
-            System.out.println("\t(3) - 12\"");
-
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int choice = scanner.nextInt();
 
@@ -169,14 +168,14 @@ public class UserMenu {
     }
 
     public void addBread() {
-
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-White");
+        menu_options.add("(2)-Whole Wheat");
+        menu_options.add("(3)-Rye");
+        menu_options.add("(4)-Wrap");
+        String title = "What kind of bread would you like?";
         do {
-            System.out.println("What kind of bread would you like?");
-            System.out.println("\t(1)-White");
-            System.out.println("\t(2)-Whole Wheat");
-            System.out.println("\t(3)-Rye");
-            System.out.println("\t(4)-Wrap");
-
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int option = scanner.nextInt();
 
@@ -214,14 +213,16 @@ public class UserMenu {
 
 
     public void addMeat() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Steak");
+        menu_options.add("(2)-Ham");
+        menu_options.add("(3)-Salami");
+        menu_options.add("(4)-Roast Beef");
+        menu_options.add("(5)-Chicken");
+        menu_options.add("(6)-Bacon");
+        String title = "What kind of meat would you like?";
         do {
-            System.out.println("What kind of meat would you like?");
-            System.out.println("\t(1)-Steak");
-            System.out.println("\t(2)-Ham");
-            System.out.println("\t(3)-Salami");
-            System.out.println("\t(4)-Roast Beef");
-            System.out.println("\t(5)-Chicken");
-            System.out.println("\t(6)-Bacon");
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -270,11 +271,12 @@ public class UserMenu {
 
 
     public void extraMeat() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Yes");
+        menu_options.add("(2)-No");
+        String title = "Would you like extra meat?";
         do {
-            System.out.println("Would you like extra meat?");
-            System.out.println("\t(1)-Yes");
-            System.out.println("\t(2)-No");
-
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int choice = scanner.nextInt();
                 boolean extra_meat;
@@ -304,16 +306,16 @@ public class UserMenu {
     }
 
 
-
-
     public void addCheese() {
-        do {
-            System.out.println("What kind of cheese would you like?");
-            System.out.println("\t(1)-American");
-            System.out.println("\t(2)-Provolone");
-            System.out.println("\t(3)-Cheddar");
-            System.out.println("\t(4)-Swiss");
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-American");
+        menu_options.add("(2)-Provolone");
+        menu_options.add("(3)-Cheddar");
+        menu_options.add("(4)-Swiss");
+        String title = "What kind of cheese would you like?";
 
+        do {
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -350,12 +352,13 @@ public class UserMenu {
     }
 
 
-
     public void extraCheese() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Yes");
+        menu_options.add("(2)-No");
+        String title = "Would you like extra cheese?";
         do {
-            System.out.println("Would you like extra cheese?");
-            System.out.println("\t(1)-Yes");
-            System.out.println("\t(2)-No");
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int choice = scanner.nextInt();
                 scanner.nextLine();
@@ -392,26 +395,22 @@ public class UserMenu {
         ArrayList<String> topping_menu = new ArrayList<>();
         topping_menu = order.sandwich.getAvaliable_toppings();
         boolean continue_choosing = true;
-
+        String title = "Choose the toppings you would like on your sandwich";
+        String subtitle = "Enter topping name or write \"None\" to proceed ";
         while (continue_choosing) {
-            for (int i = 0; i < topping_menu.size(); i++) {
-
-                System.out.println(topping_menu.get(i));
-            }
-            System.out.println("Choose the toppings you would like on your sandwich");
-            System.out.println("Enter topping name or write \"None\" to proceed ");
+            MenuBuilder.printMenu(title, subtitle, topping_menu);
             String input;
             try {
                 input = scanner.nextLine().toLowerCase();
 
-                    if (input.equalsIgnoreCase("none") || topping_menu.isEmpty()) {
-                        continue_choosing = false;
-                    } else if (topping_menu.contains(input)) {
-                        user_selection.add(input);
-                        topping_menu.remove(input);
-                    } else {
-                        System.out.println("\nPlease select a choice from the menu.");
-                    }
+                if (input.equalsIgnoreCase("none") || topping_menu.isEmpty()) {
+                    continue_choosing = false;
+                } else if (topping_menu.contains(input)) {
+                    user_selection.add(input);
+                    topping_menu.remove(input);
+                } else {
+                    System.out.println("\nPlease select a choice from the menu.");
+                }
 
 
             } catch (InputMismatchException e) {
@@ -424,29 +423,26 @@ public class UserMenu {
     }
 
 
-
     public void addSauces() {
         ArrayList<String> user_choices = new ArrayList<>();
         ArrayList<String> sauce_menu = new ArrayList<>();
         sauce_menu = order.sandwich.getAvaliable_sauces();
         boolean continue_choosing = true;
+        String title = "Choose the sauces you would like on your sandwich";
+        String subtitle = "Enter sauce name or write \"None\" to proceed ";
         while (continue_choosing) {
-            for (int i = 0; i < sauce_menu.size(); i++) {
-                System.out.println(sauce_menu.get(i));
-            }
-            System.out.println("Choose the sauces you like on your sandwich");
-            System.out.println("Enter sauce name or write \"None\" to proceed ");
+            MenuBuilder.printMenu(title, subtitle, sauce_menu);
             String input;
             try {
                 input = scanner.nextLine().toLowerCase();
-                    if (input.equalsIgnoreCase("none") || sauce_menu.isEmpty()) {
-                        continue_choosing = false;
-                    } else if (sauce_menu.contains(input)) {
-                        user_choices.add(input);
-                        sauce_menu.remove(input);
-                    } else {
-                        System.out.println("Please select a choice from the menu.\n");
-                    }
+                if (input.equalsIgnoreCase("none") || sauce_menu.isEmpty()) {
+                    continue_choosing = false;
+                } else if (sauce_menu.contains(input)) {
+                    user_choices.add(input);
+                    sauce_menu.remove(input);
+                } else {
+                    System.out.println("Please select a choice from the menu.\n");
+                }
             } catch (InputMismatchException e) {
                 System.out.println("Not a valid option.\n");
                 scanner.nextLine();
@@ -463,23 +459,21 @@ public class UserMenu {
         ArrayList<String> side_menu = new ArrayList<>();
         side_menu = order.sandwich.getAvaliable_sides();
         boolean continue_choosing = true;
+        String title = "Choose the sides you would like on your sandwich";
+        String subtitle = "Enter side name or write \"None\" to proceed ";
         while (continue_choosing) {
-            for (int i = 0; i < side_menu.size(); i++) {
-                System.out.println(side_menu.get(i));
-            }
-            System.out.println("Choose the sides you like with your sandwich.");
-            System.out.println("Enter side name or write \"None\" to proceed ");
+            MenuBuilder.printMenu(title, subtitle, side_menu);
             String input;
             try {
                 input = scanner.nextLine().toLowerCase();
-                    if (input.equalsIgnoreCase("none") || side_menu.isEmpty()) {
-                        continue_choosing = false;
-                    } else if (side_menu.contains(input)) {
-                        user_choice.add(input);
-                        side_menu.remove(input);
-                    } else {
-                        System.out.println("Please select a choice from the menu.\n");
-                    }
+                if (input.equalsIgnoreCase("none") || side_menu.isEmpty()) {
+                    continue_choosing = false;
+                } else if (side_menu.contains(input)) {
+                    user_choice.add(input);
+                    side_menu.remove(input);
+                } else {
+                    System.out.println("Please select a choice from the menu.\n");
+                }
 
             } catch (InputMismatchException e) {
                 System.out.println("Please select a valid choice.\n");
@@ -492,11 +486,12 @@ public class UserMenu {
     }
 
     public void toasted() {
-
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Yes");
+        menu_options.add("(2)-No");
+        String title = "Would you like your sandwich toasted?";
         do {
-            System.out.println("Would you like your sandwich toasted?");
-            System.out.println("\t(1)-Yes");
-            System.out.println("\t(2)-No");
+            MenuBuilder.printMenu(title, menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -524,12 +519,14 @@ public class UserMenu {
 
 
     public void addDrink() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Small");
+        menu_options.add("(2)-Medium");
+        menu_options.add("(3)-Large");
+        menu_options.add("(4)-None");
+        String title = "What size drink would you like?";
         do {
-            System.out.println("What size drink would you like?");
-            System.out.println("\t(1)-Small");
-            System.out.println("\t(2)-Medium");
-            System.out.println("\t(3)-Large");
-            System.out.println("\t(4)-None");
+            MenuBuilder.printMenu(title,menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -562,10 +559,12 @@ public class UserMenu {
 
 
     public void addChip() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Yes");
+        menu_options.add("(2)-No");
+        String title = "Would you like to add a side of chips to your order?";
         do {
-            System.out.println("Would you like to add a side of chips to your order?");
-            System.out.println("\t(1)-Yes");
-            System.out.println("\t(2)-No");
+           MenuBuilder.printMenu(title,menu_options);
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -585,13 +584,15 @@ public class UserMenu {
     }
 
     public void checkout() {
+        ArrayList<String> menu_options = new ArrayList<>();
+        menu_options.add("(1)-Confirm and Pay");
+        menu_options.add("(2)-Add a Sandwich!");
+        menu_options.add("(3)-Cancel Order");
+        String title = "Is there anything else you'd like to add to your order?";
         do {
+            MenuBuilder.printMenu(title,menu_options);
             System.out.println("YOUR ORDER IS:");
             processCheckout();
-            System.out.println("\nIs there anything else you'd like to add to your order?");
-            System.out.println("\t(1)-Confirm and Pay");
-            System.out.println("\t(2)-Add a Sandwich!");
-            System.out.println("\t(3)-Cancel Order");
             try {
                 int input = scanner.nextInt();
                 switch (input) {

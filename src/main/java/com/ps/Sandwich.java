@@ -378,7 +378,7 @@ public class Sandwich extends Product implements Edible {
         sandwich_order.append("EXTRA MEAT: ").append(extra_meat ? "Yes" : "No").append("\n");
         sandwich_order.append("EXTRA CHEESE: ").append(extra_cheese ? "Yes" : "No").append("\n");
         sandwich_order.append("TOASTED: ").append(toasted ? "Yes" : "No").append("\n");
-        sandwich_order.append("PRICE: ").append("$").append(calcPrice()).append("\n");
+        sandwich_order.append("PRICE: ").append("$").append(String.format("%.2f",calcPrice())).append("\n");
         sandwich_order.append("TOTAL CALORIES: ").append(calcCalories()).append("\n");
         return sandwich_order.toString();
     }

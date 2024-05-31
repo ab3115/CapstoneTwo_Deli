@@ -144,14 +144,17 @@ public class UserMenu {
                 switch (choice) {
                     case 1:
                         processAddSize("4");
+                        System.out.println("You selected 4\"!\n");
                         addBread();
                         break;
                     case 2:
                         processAddSize("8");
+                        System.out.println("You selected 8\"!\n");
                         addBread();
                         break;
                     case 3:
                         processAddSize("12");
+                        System.out.println("You selected 12\"!\n");
                         addBread();
                         break;
                     default:
@@ -180,18 +183,22 @@ public class UserMenu {
                 switch (option) {
                     case 1:
                         processAddBread("White");
+                        System.out.println("You selected White bread!\n");
                         addMeat();
                         break;
                     case 2:
                         processAddBread("Whole Wheat");
+                        System.out.println("You selected Whole Wheat bread!\n");
                         addMeat();
                         break;
                     case 3:
                         processAddBread("Rye");
+                        System.out.println("You selected Rye bread!\n");
                         addMeat();
                         break;
                     case 4:
                         processAddBread("Wrap");
+                        System.out.println("You selected Wrap bread!\n");
                         addMeat();
                         break;
                     default:
@@ -217,30 +224,35 @@ public class UserMenu {
             System.out.println("\t(6)-Bacon");
             try {
                 int input = scanner.nextInt();
-
                 switch (input) {
                     case 1:
                         processAddMeat("Steak");
+                        System.out.println("You selected Steak!\n");
                         extraMeat();
                         break;
                     case 2:
                         processAddMeat("Ham");
+                        System.out.println("You selected Ham!\n");
                         extraMeat();
                         break;
                     case 3:
                         processAddMeat("Salami");
+                        System.out.println("You selected Salami!\n");
                         extraMeat();
                         break;
                     case 4:
                         processAddMeat("Roast Beef");
+                        System.out.println("You selected Roast Beef!\n");
                         extraMeat();
                         break;
                     case 5:
                         processAddMeat("Chicken");
+                        System.out.println("You selected Chicken!\n");
                         extraMeat();
                         break;
                     case 6:
                         processAddMeat("Bacon");
+                        System.out.println("You selected Bacon!\n");
                         extraMeat();
                         break;
                     default:
@@ -270,11 +282,13 @@ public class UserMenu {
                 switch (choice) {
                     case 1:
                         extra_meat = true;
+                        System.out.println("Added Extra Meat.\n");
                         processExtraMeat(true);
                         addCheese();
                         break;
                     case 2:
                         extra_meat = false;
+                        System.out.println("No Extra Meat selected.\n");
                         processExtraMeat(false);
                         addCheese();
                         break;
@@ -305,18 +319,22 @@ public class UserMenu {
                 switch (input) {
                     case 1:
                         processAddCheese("American");
+                        System.out.println("You selected American Cheese!\n");
                         extraCheese();
                         break;
                     case 2:
                         processAddCheese("Provolone");
+                        System.out.println("You selected Provolone Cheese!\n");
                         extraCheese();
                         break;
                     case 3:
                         processAddCheese("Cheddar");
+                        System.out.println("You selected Cheddar Cheese!\n");
                         extraCheese();
                         break;
                     case 4:
                         processAddCheese("Swiss");
+                        System.out.println("You selected Swiss Cheese!\n");
                         extraCheese();
                         break;
                     default:
@@ -346,11 +364,13 @@ public class UserMenu {
                     case 1:
                         extra_cheese = true;
                         processExtraCheese(true);
+                        System.out.println("Added Extra Cheese!\n");
                         addToppings();
                         break;
                     case 2:
                         extra_cheese = false;
                         processExtraCheese(false);
+                        System.out.println("No Extra Cheese selected.\n");
                         addToppings();
                         break;
                     default:
@@ -482,10 +502,12 @@ public class UserMenu {
                 switch (input) {
                     case 1:
                         processToasted(true);
+                        System.out.println("Toasted Sandwich!\n");
                         addDrink();
                         break;
                     case 2:
                         processToasted(false);
+                        System.out.println("Chose not to toast.\n");
                         addDrink();
                         break;
                     case 3:

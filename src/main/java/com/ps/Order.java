@@ -11,7 +11,6 @@ public class Order {
     Drink drink;
     Chip chips;
     private double total_price;
-    private double total_cals;
 
     public Order() {
         order = new ArrayList<>();
@@ -56,9 +55,6 @@ public class Order {
         this.total_price = total_price;
     }
 
-    public void setTotal_calories(double total_calories){
-
-    }
 
     public void addSize(String size){
         sandwich.setSize(size);

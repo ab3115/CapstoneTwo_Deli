@@ -9,17 +9,17 @@ public class UserMenu {
 
     static Scanner scanner = new Scanner(System.in);
     static boolean quit_menu = false;
-    private Order order = new Order();;
+    private Order order = new Order();
+    ;
 
 
     public void homeScreen() {
         do {
             System.out.println("Welcome to Ocky's Sandwich shop!");
             System.out.println("\t(1)-New Order");
-            System.out.println("\t(3)-Exit App.");
+            System.out.println("\t(2)-Exit App.");
             try {
                 int input = scanner.nextInt();
-
                 switch (input) {
                     case (1):
                         orderScreen();
@@ -46,10 +46,9 @@ public class UserMenu {
             System.out.println("\t(1)-Add Sandwich");
             System.out.println("\t(2)-Add Drink");
             System.out.println("\t(3)-Add Chips");
-            System.out.println("\t(4)-Checkout");
+            System.out.println("\t(4)-Return");
             try {
                 int input = scanner.nextInt();
-
                 switch (input) {
                     case (1):
                         processStartSandwich();
@@ -62,6 +61,7 @@ public class UserMenu {
                         addChip();
                         break;
                     case (4):
+                        homeScreen();
                         break;
                     default:
                         System.out.println("Please select a valid option.");
@@ -126,6 +126,7 @@ public class UserMenu {
 
             try {
                 int choice = scanner.nextInt();
+
                 switch (choice) {
                     case 1:
                         processAddSize("4");
@@ -150,12 +151,6 @@ public class UserMenu {
         } while (!quit_menu);
     }
 
-    public void editCustom() {
-        do {
-
-        } while (!quit_menu);
-    }
-
     public void addBread() {
 
         do {
@@ -167,6 +162,7 @@ public class UserMenu {
 
             try {
                 int option = scanner.nextInt();
+
                 switch (option) {
                     case 1:
                         processAddBread("White");
@@ -207,6 +203,7 @@ public class UserMenu {
             System.out.println("\t(6)-Bacon");
             try {
                 int input = scanner.nextInt();
+
                 switch (input) {
                     case 1:
                         processAddMeat("Steak");
@@ -355,7 +352,8 @@ public class UserMenu {
     public void addToppings() {
 
         ArrayList<String> user_selection = new ArrayList<>();
-        ArrayList<String> topping_menu = order.sandwich.getAvaliable_toppings();
+        ArrayList<String> topping_menu = new ArrayList<>();
+        topping_menu = order.sandwich.getAvaliable_toppings();
         boolean continue_choosing = true;
 
         while (continue_choosing) {
@@ -369,7 +367,8 @@ public class UserMenu {
                 input = scanner.next().toLowerCase();
                 if (input.equalsIgnoreCase("none")) {
                     continue_choosing = false;
-                } else if (topping_menu.contains(input)) {
+                }
+                else if (topping_menu.contains(input)) {
                     user_selection.add(input);
                     topping_menu.remove(input);
                 } else {
@@ -385,9 +384,12 @@ public class UserMenu {
         addSauces();
     }
 
+
+
     public void addSauces() {
         ArrayList<String> user_choices = new ArrayList<>();
-        ArrayList<String> sauce_menu = order.sandwich.getAvaliable_sauces();
+        ArrayList<String> sauce_menu = new ArrayList<>();
+        sauce_menu = order.sandwich.getAvaliable_sauces();
         boolean continue_choosing = true;
         while (continue_choosing) {
             for (int i = 0; i < sauce_menu.size(); i++) {
@@ -400,7 +402,8 @@ public class UserMenu {
                 input = scanner.next().toLowerCase();
                 if (input.equalsIgnoreCase("none")) {
                     continue_choosing = false;
-                } else if (sauce_menu.contains(input)) {
+                }
+                else if (sauce_menu.contains(input)) {
                     user_choices.add(input);
                     sauce_menu.remove(input);
                 } else {
@@ -418,8 +421,10 @@ public class UserMenu {
     }
 
     public void addSide() {
+
         ArrayList<String> user_choice = new ArrayList<>();
-        ArrayList<String> side_menu = order.sandwich.getAvaliable_sides();
+        ArrayList<String> side_menu = new ArrayList<>();
+        side_menu = order.sandwich.getAvaliable_sides();
         boolean continue_choosing = true;
         while (continue_choosing) {
             for (int i = 0; i < side_menu.size(); i++) {
@@ -432,7 +437,8 @@ public class UserMenu {
                 input = scanner.next().toLowerCase();
                 if (input.equalsIgnoreCase("none")) {
                     continue_choosing = false;
-                } else if (side_menu.contains(input)) {
+                }
+                else if (side_menu.contains(input)) {
                     user_choice.add(input);
                     side_menu.remove(input);
                 } else {
@@ -449,6 +455,7 @@ public class UserMenu {
     }
 
     public void toasted() {
+
         do {
             System.out.println("Would you like your sandwich toasted?");
             System.out.println("\t(1)-Yes");
@@ -517,7 +524,7 @@ public class UserMenu {
 
     public void addChip() {
         do {
-            System.out.println("Would you like to add a side of chips?");
+            System.out.println("Would you like to add a side of chips to your order?");
             System.out.println("\t(1)-Yes");
             System.out.println("\t(2)-No");
             try {
@@ -543,7 +550,7 @@ public class UserMenu {
             processCheckout();
             System.out.println("Is there anything else you'd like to add to your order?");
             System.out.println("\t(1)-Confirm and Pay");
-            System.out.println("\t(2)-Buy Another Sandwich!");
+            System.out.println("\t(2)-Add a Sandwich!");
             System.out.println("\t(3)-Cancel Order");
             try {
                 int input = scanner.nextInt();
@@ -642,7 +649,7 @@ public class UserMenu {
         order.setSignatureSandwich(choice);
     }
 
-    public void processCancelOrder(){
+    public void processCancelOrder() {
         order.clearOrder();
     }
 

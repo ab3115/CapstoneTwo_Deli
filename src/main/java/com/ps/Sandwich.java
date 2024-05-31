@@ -362,18 +362,18 @@ public class Sandwich extends Product implements Edible {
 
         StringBuilder sandwich_order = new StringBuilder();
         sandwich_order.append("\nSandwich Details:\n");
-        sandwich_order.append("Size: ").append(size).append("\n");
-        sandwich_order.append("Bread: ").append(bread).append(" calories: ").append(calcBreadCals()).append("\n");
-        sandwich_order.append("Meat: ").append(meat).append(" calories: ").append(calcMeatCals()).append("\n");
-        sandwich_order.append("Cheese: ").append(cheese).append(" calories: ").append(calcCheeseCals()).append("\n");
-        sandwich_order.append("Toppings: ").append(toppings != null ? String.join(", ", toppings) : "None").append(" calories: ").append(calcToppingCals()).append("\n");
-        sandwich_order.append("Sauces: ").append(sauces != null ? String.join(", ", sauces) : "None").append(" calories: ").append(calcSaucesCals()).append("\n");
-        sandwich_order.append("Sides: ").append(sides != null ? String.join(", ", sides) : "None").append(" calories: ").append(calcSidesCals()).append("\n");
-        sandwich_order.append("Extra Meat: ").append(extra_meat ? "Yes" : "No").append("\n");
-        sandwich_order.append("Extra Cheese: ").append(extra_cheese ? "Yes" : "No").append("\n");
-        sandwich_order.append("Toasted: ").append(toasted ? "Yes" : "No").append("\n");
-        sandwich_order.append("Price: ").append(calcPrice()).append("\n");
-        sandwich_order.append("Calories: ").append(calcCalories()).append("\n");
+        sandwich_order.append("SIZE: ").append(size).append("\n");
+        sandwich_order.append("BREAD: ").append(bread).append("   CALORIES: ").append(calcBreadCals()).append("\n");
+        sandwich_order.append("MEAT: ").append(meat).append("   CALORIES: ").append(calcMeatCals()).append("\n");
+        sandwich_order.append("CHEESE: ").append(cheese).append(" CALORIES: ").append(calcCheeseCals()).append("\n");
+        sandwich_order.append("TOPPINGS: ").append(toppings != null ? String.join(", ", toppings) : "None").append("   CALORIES: ").append(calcToppingCals()).append("\n");
+        sandwich_order.append("SAUCES: ").append(sauces != null ? String.join(", ", sauces) : "None").append("   CALORIES: ").append(calcSaucesCals()).append("\n");
+        sandwich_order.append("SIDES: ").append(sides != null ? String.join(", ", sides) : "None").append("   CALORIES: ").append(calcSidesCals()).append("\n");
+        sandwich_order.append("EXTRA MEAT: ").append(extra_meat ? "Yes" : "No").append("\n");
+        sandwich_order.append("EXTRA CHEESE: ").append(extra_cheese ? "Yes" : "No").append("\n");
+        sandwich_order.append("TOASTED: ").append(toasted ? "Yes" : "No").append("\n");
+        sandwich_order.append("PRICE: ").append("$").append(calcPrice()).append("\n");
+        sandwich_order.append("TOTAL CALORIES: ").append(calcCalories()).append("\n");
         return sandwich_order.toString();
     }
 

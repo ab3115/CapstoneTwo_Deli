@@ -1,5 +1,6 @@
 package com.ps;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Locale;
@@ -15,9 +16,14 @@ public class UserMenu {
 
     public void homeScreen() {
         do {
-            System.out.println("Welcome to Ocky's Sandwich shop!");
-            System.out.println("\t(1)-New Order");
-            System.out.println("\t(2)-Exit App.");
+            System.out.println("\n                        /////////////////////////////////////////");
+            System.out.println("                         //                                     //");
+            System.out.println("                           //   Welcome to Ocky's Sandwich shop!  //");
+            System.out.println("                        //                                     //");
+            System.out.println("                         //        \t(1)-New Order              // ");
+            System.out.println("                     //        \t(2)-Exit App.              //");
+            System.out.println("                    //                                     //");
+            System.out.println("                   /////////////////////////////////////////");
             try {
                 int input = scanner.nextInt();
                 switch (input) {
@@ -29,12 +35,12 @@ public class UserMenu {
                         quit_menu = true;
                         System.exit(0);
                     default:
-                        System.out.println("Please enter a valid option");
+                        System.out.println("Please enter a valid option\n");
                         break;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please choose from the above.");
+                System.out.println("Please choose from the above.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -64,11 +70,11 @@ public class UserMenu {
                         homeScreen();
                         break;
                     default:
-                        System.out.println("Please select a valid option.");
+                        System.out.println("Please select a valid option.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please choose from the above.");
+                System.out.println("Please choose from the above.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -78,11 +84,11 @@ public class UserMenu {
         do {
             System.out.println("Would you like to try any of our signature sandwiches?!");
             System.out.println("Or create your own custom sandwich from scratch?");
-            System.out.println("(1)-Make my own sandwich.");
-            System.out.println("(2)-Make a BLT");
-            System.out.println("(3)-Make a Philly Cheese Steak");
-            System.out.println("(4)-Make a Pulled Pork Sub");
-            System.out.println("(5)-Make a Spring Lovers.");
+            System.out.println("\t(1)-Make my own sandwich.");
+            System.out.println("\t(2)-Make a BLT");
+            System.out.println("\t(3)-Make a Philly Cheese Steak");
+            System.out.println("\t(4)-Make a Pulled Pork Sub");
+            System.out.println("\t(5)-Make a Spring Lovers.");
             try {
                 int option = scanner.nextInt();
                 switch (option) {
@@ -91,26 +97,30 @@ public class UserMenu {
                         break;
                     case 2:
                         processMakeSignature("BLT");
+                        System.out.println("\nYou added a BLT to your order!\n");
                         addDrink();
                         break;
                     case 3:
                         processMakeSignature("Philly");
+                        System.out.println("\nYou added a Philly Cheese Steak to your order!\n");
                         addDrink();
                         break;
                     case 4:
                         processMakeSignature("Pulled Pork");
+                        System.out.println("\nYou added a Pulled Pork Sub to your order!\n");
                         addDrink();
                         break;
                     case 5:
                         processMakeSignature("Spring Lover");
+                        System.out.println("\nYou added a Spring Lover's Sandwich to your order!\n");
                         addDrink();
                         break;
                     default:
-                        System.out.println("Please choose from the above options.");
+                        System.out.println("Please choose from the above options.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid input.");
+                System.out.println("Please enter a valid input.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -141,11 +151,11 @@ public class UserMenu {
                         addBread();
                         break;
                     default:
-                        System.out.println("Please enter a valid size.");
+                        System.out.println("Please enter a valid size.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please choose from the avaliable.");
+                System.out.println("Please choose from the avaliable.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -181,11 +191,11 @@ public class UserMenu {
                         addMeat();
                         break;
                     default:
-                        System.out.println("Please enter a valid choice.");
+                        System.out.println("Please enter a valid choice.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please select a bread option");
+                System.out.println("Please select a bread option\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -230,12 +240,12 @@ public class UserMenu {
                         extraMeat();
                         break;
                     default:
-                        System.out.println("Please choose a valid option.");
+                        System.out.println("Please choose a valid option.\n");
                         break;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please select from the above.");
+                System.out.println("Please select from the above.\n");
                 scanner.nextLine();
             }
 
@@ -265,11 +275,11 @@ public class UserMenu {
                         addCheese();
                         break;
                     default:
-                        System.out.println("Please choose yes or no.");
+                        System.out.println("Please choose yes or no.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid option.");
+                System.out.println("Please enter a valid option.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -304,12 +314,12 @@ public class UserMenu {
                         extraCheese();
                         break;
                     default:
-                        System.out.println("Please choose a valid option");
+                        System.out.println("Please choose a valid option\n");
                         break;
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Please select from the above.");
+                System.out.println("Please select from the above.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -323,8 +333,8 @@ public class UserMenu {
             System.out.println("\t(2)-No");
             try {
                 int choice = scanner.nextInt();
+                scanner.nextLine();
                 boolean extra_cheese;
-
                 switch (choice) {
                     case 1:
                         extra_cheese = true;
@@ -337,11 +347,11 @@ public class UserMenu {
                         addToppings();
                         break;
                     default:
-                        System.out.println("Please choose yes or no.");
+                        System.out.println("Please choose yes or no.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid option.");
+                System.out.println("Please enter a valid option.\n");
                 scanner.nextLine();
             }
 
@@ -358,32 +368,33 @@ public class UserMenu {
 
         while (continue_choosing) {
             for (int i = 0; i < topping_menu.size(); i++) {
+
                 System.out.println(topping_menu.get(i));
             }
             System.out.println("Choose the toppings you would like on your sandwich");
             System.out.println("Enter topping name or write \"None\" to proceed ");
             String input;
             try {
-                input = scanner.next().toLowerCase();
-                if (input.equalsIgnoreCase("none")) {
-                    continue_choosing = false;
-                }
-                else if (topping_menu.contains(input)) {
-                    user_selection.add(input);
-                    topping_menu.remove(input);
-                } else {
-                    System.out.println("Please select a choice from the menu.");
+                input = scanner.nextLine().toLowerCase();
+                if(inputChecker(input)) {
+                    if (input.equalsIgnoreCase("none") || topping_menu.isEmpty()) {
+                        continue_choosing = false;
+                    } else if (topping_menu.contains(input)) {
+                        user_selection.add(input);
+                        topping_menu.remove(input);
+                    } else {
+                        System.out.println("\nPlease select a choice from the menu.");
+                    }
                 }
 
             } catch (InputMismatchException e) {
-                System.out.println("Not a valid option.");
+                System.out.println("Not a valid option.\n");
                 scanner.nextLine();
             }
         }
         processAddToppings(user_selection);
         addSauces();
     }
-
 
 
     public void addSauces() {
@@ -399,19 +410,19 @@ public class UserMenu {
             System.out.println("Enter sauce name or write \"None\" to proceed ");
             String input;
             try {
-                input = scanner.next().toLowerCase();
-                if (input.equalsIgnoreCase("none")) {
-                    continue_choosing = false;
+                input = scanner.nextLine().toLowerCase();
+                if(inputChecker(input)) {
+                    if (input.equalsIgnoreCase("none") || sauce_menu.isEmpty()) {
+                        continue_choosing = false;
+                    } else if (sauce_menu.contains(input)) {
+                        user_choices.add(input);
+                        sauce_menu.remove(input);
+                    } else {
+                        System.out.println("Please select a choice from the menu.\n");
+                    }
                 }
-                else if (sauce_menu.contains(input)) {
-                    user_choices.add(input);
-                    sauce_menu.remove(input);
-                } else {
-                    System.out.println("Please select a choice from the menu.");
-                }
-
             } catch (InputMismatchException e) {
-                System.out.println("Not a valid option");
+                System.out.println("Not a valid option.\n");
                 scanner.nextLine();
             }
         }
@@ -434,18 +445,18 @@ public class UserMenu {
             System.out.println("Enter side name or write \"None\" to proceed ");
             String input;
             try {
-                input = scanner.next().toLowerCase();
-                if (input.equalsIgnoreCase("none")) {
-                    continue_choosing = false;
-                }
-                else if (side_menu.contains(input)) {
-                    user_choice.add(input);
-                    side_menu.remove(input);
-                } else {
-                    System.out.println("Please select a choice from the menu.");
-                }
+                input = scanner.nextLine().toLowerCase();
+                    if (input.equalsIgnoreCase("none") || side_menu.isEmpty()) {
+                        continue_choosing = false;
+                    } else if (side_menu.contains(input)) {
+                        user_choice.add(input);
+                        side_menu.remove(input);
+                    } else {
+                        System.out.println("Please select a choice from the menu.\n");
+                    }
+
             } catch (InputMismatchException e) {
-                System.out.println("Please select a valid choice.");
+                System.out.println("Please select a valid choice.\n");
                 scanner.nextLine();
             }
 
@@ -472,11 +483,11 @@ public class UserMenu {
                         addDrink();
                         break;
                     case 3:
-                        System.out.println("Please choose a valid choice.");
+                        System.out.println("Please choose a valid choice.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please enter valid input");
+                System.out.println("Please enter valid input.\n");
                 scanner.nextLine();
             }
 
@@ -507,15 +518,15 @@ public class UserMenu {
                         addChip();
                         break;
                     case 4:
-                        System.out.println("No drink was added.");
+                        System.out.println("No drink was added.\n");
                         addChip();
                         break;
                     default:
-                        System.out.println("Please choose an option on the list.");
+                        System.out.println("Please choose an option on the list.\n");
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please enter a valid choice");
+                System.out.println("Please enter a valid choice.\n");
                 scanner.nextLine();
             }
         } while (!quit_menu);
@@ -535,11 +546,12 @@ public class UserMenu {
                         checkout();
                         break;
                     case 2:
+                        System.out.println("No chips were added.\n");
                         checkout();
                         break;
                 }
             } catch (InputMismatchException e) {
-                System.out.println("Please choose valid option.");
+                System.out.println("Please choose valid option.\n");
             }
         } while (!quit_menu);
     }
@@ -567,8 +579,8 @@ public class UserMenu {
                         break;
                     case 3:
                         processCancelOrder();
+                        homeScreen();
                         System.out.println("Returning to main menu....");
-                        quit_menu = true;
                         break;
                     default:
                         System.out.println("Please choose an option.");
@@ -652,5 +664,16 @@ public class UserMenu {
     public void processCancelOrder() {
         order.clearOrder();
     }
+    //CHECKS IF INPUT IS ONE WORD
+    public boolean inputChecker(String input){
+        String[] space_checker = input.split(" ");
+        if(space_checker.length != 1){
+            System.out.println("Please enter only one topping");
+            return false;
+        }
+        return true;
+    }
+
+
 
 }

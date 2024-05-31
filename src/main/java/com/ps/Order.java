@@ -113,7 +113,7 @@ public class Order {
             System.out.println(order.get(i).toString());
 
         }
-        System.out.printf("Total price: %.2f\n ", getTotal_price());
+        System.out.printf("Total price: $%.2f\n ", getTotal_price());
     }
 
 
